@@ -1,27 +1,38 @@
-import type { GatsbyConfig } from "gatsby";
+import type { GatsbyConfig } from "gatsby"
+
+import * as dotenv from "dotenv"
+
+dotenv.config()
 
 const config: GatsbyConfig = {
-  siteMetadata: {
-    title: `My Site With Emotion`,
-    siteUrl: `https://www.yourdomain.tld`
-  },
-  // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
-  // If you use VSCode you can also use the GraphQL plugin
-  // Learn more at: https://gatsby.dev/graphql-typegen
-  graphqlTypegen: true,
-  plugins: ["gatsby-plugin-emotion", "gatsby-plugin-react-helmet", {
-    resolve: 'gatsby-plugin-manifest',
-    options: {
-      "icon": "src/images/icon.png"
-    }
-  }, "gatsby-plugin-mdx", {
-    resolve: 'gatsby-source-filesystem',
-    options: {
-      "name": "pages",
-      "path": "./src/pages/"
+    siteMetadata: {
+        title: `Neal.Rame.`,
     },
-    __key: "pages"
-  }]
-};
+    graphqlTypegen: true,
+    plugins: [
+        "gatsby-plugin-emotion",
+        "gatsby-plugin-react-helmet",
+        "gatsby-plugin-mdx",
+        {
+            resolve: 'gatsby-plugin-manifest',
+            options: {
+                "icon": "src/images/icon.png",
+            }
+        }, {
+            resolve: "gatsby-plugin-web-font-loader",
+            options: {
+                typekit: {
+                    id: process.env.TYPEKIT_ID,
+                },
+            },
+        }, {
+            resolve: "gatsby-source-filesystem",
+            options: {
+                name: "work",
+                path: `${__dirname}/src/work`,
+            }
+        },
+    ],
+}
 
-export default config;
+export default config

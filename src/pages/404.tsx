@@ -1,54 +1,66 @@
-import * as React from "react"
+/** @jsx jsx */
+/** @jsxFrag React.Fragment */
+
 import { Link } from "gatsby"
 
-// styles
-const pageStyles = {
-  color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
+import { jsx } from "@emotion/react"
+import styled from "@emotion/styled"
 
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {
+    faGhost,
+} from "@fortawesome/free-solid-svg-icons"
+
+import Layout from "../components/layout"
+import { ITheme } from "../style"
+
+const Error404 = styled.div`
+    color: ${props => (props.theme as ITheme).error404.colors.foreground};
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+    height: 100%;
+
+    .ghost {
+        color: ${props => (props.theme as ITheme).error404.colors.ghost};
+
+        font-size: 2rem;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        transform: translate(-50%, -50%);
+
+        z-index: -1;
+    }
+
+    h1 {
+        font-family: lores-9-wide, sans-serif;
+        font-size: 4rem;
+        font-weight: 700;
+    }
+`
 
 // markup
-const NotFoundPage = () => {
-  return (
-    <main style={pageStyles}>
-      <title>Not found</title>
-      <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
-        Sorry{" "}
-        <span role="img" aria-label="Pensive emoji">
-          😔
-        </span>{" "}
-        we couldn’t find what you were looking for.
-        <br />
-        {process.env.NODE_ENV === "development" ? (
-          <>
-            <br />
-            Try creating a page in <code style={codeStyles}>src/pages/</code>.
-            <br />
-          </>
-        ) : null}
-        <br />
-        <Link to="/">Go home</Link>.
-      </p>
-    </main>
-  )
-}
+const NotFoundPage = () => (
+    <Layout pageTitle="404 Error">
+        <Error404>
+            <h1>NOT FOUND</h1>
+            <div className="ghost">
+                <FontAwesomeIcon icon={ faGhost } size="10x" />
+            </div>
+            <div css={{ textAlign: "center" }}>
+                <p>You just hit a route that doesn't exist...</p>
+                <Link to="/">Go back to the homepage</Link>
+            </div>
+        </Error404>
+    </Layout>
+)
 
 export default NotFoundPage
