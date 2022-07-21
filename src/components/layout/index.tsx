@@ -31,7 +31,11 @@ import GlobalStyle from "../global-style"
 const Container = styled.div`
     display: grid;
 
-    grid-template-rows: auto 100fr;
+    grid-template-rows: auto 100fr auto;
+
+    ${mediaQuery("medium")} {
+        grid-template-rows: auto 100fr;
+    }
 
     overflow: hidden;
 
@@ -109,10 +113,10 @@ const Layout = ({ children, pageTitle }: ILayoutProps) => {
                 />
                 <NavigationPanelSite active={ pageMenuActive }/>
             </Header>
-            <SocialBar/>
             <Main>
                 { children }
             </Main>
+            <SocialBar/>
         </Container>
     </>
 }

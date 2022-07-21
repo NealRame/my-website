@@ -11,6 +11,7 @@ import {
 } from "@fortawesome/react-fontawesome"
 
 import {
+    faCodepen,
     faGithubAlt,
     faInstagram,
     faTwitter,
@@ -19,39 +20,48 @@ import {
 import {
     type ITheme,
     shake,
+    mediaQuery,
 } from "../../style"
 
 const Aside = styled.aside`
-    position: fixed;
-    bottom: 0;
-    left: 0;
+    padding: .5rem 0 .5rem;
 
-    padding: 0 1rem 0;
+    ${mediaQuery("medium")} {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+
+        padding: 0 1rem 0;
+    }
 `
 
 const LinkList = styled.ul`
     display: flex;
 
-    align-items: center;
-    flex-direction: column;
     justify-content: center;
-    gap: 1rem;
 
     list-style: none;
 
     padding: 0;
     margin: 0;
 
-    &::after {
-        border-left: 1px solid ${props => (props.theme as ITheme).colors.link};
-        content: "";
-        width: 1px;
-        height: 128px;
-        margin: 0 auto;
-    }
+    gap: 1rem;
 
     li:hover {
         animation: ${shake} 400ms ease 0s 1 normal forwards;
+    }
+
+    ${mediaQuery("medium")} {
+        align-items: center;
+        flex-direction: column;
+
+        &::after {
+            border-left: 1px solid ${props => (props.theme as ITheme).colors.link};
+            content: "";
+            width: 1px;
+            height: 128px;
+            margin: 0 auto;
+        }
     }
 `
 
@@ -63,6 +73,11 @@ const SocialBar = () => {
                     href="https://github.com/NealRame"
                     target="_blank"
                 ><FontAwesomeIcon fixedWidth icon={ faGithubAlt }/></a>
+            </li><li>
+                <a
+                    href="https://codepen.io/NealRame"
+                    target="_blank"
+                ><FontAwesomeIcon fixedWidth icon={ faCodepen }/></a>
             </li><li>
                 <a
                     href="https://www.instagram.com/nealrame/"
