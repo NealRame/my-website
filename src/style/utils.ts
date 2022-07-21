@@ -6,11 +6,18 @@ import {
     theme,
 } from "./theme"
 
-export function mediaQuery(
+export function mediaQueryMinWidth(
     breakpoint: IMediaQueryBreakpoint,
     type: IMediaQueryTypes = "screen"
 ) {
     return `@media ${type} and (min-width: ${theme.breakpoints[breakpoint]}px)`
+}
+
+export function mediaQueryMaxWidth(
+    breakpoint: IMediaQueryBreakpoint,
+    type: IMediaQueryTypes = "screen"
+) {
+    return `@media ${type} and (max-width: ${theme.breakpoints[breakpoint]}px)`
 }
 
 export function glow(color: string, steps: number = 3) {

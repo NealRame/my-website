@@ -23,7 +23,7 @@ import SocialBar from "./social-bar"
 
 import {
     type ITheme,
-    mediaQuery,
+    mediaQueryMinWidth,
 } from "../../style"
 
 import GlobalStyle from "../global-style"
@@ -33,7 +33,7 @@ const Container = styled.div`
 
     grid-template-rows: auto 100fr auto;
 
-    ${mediaQuery("medium")} {
+    ${mediaQueryMinWidth("medium")} {
         grid-template-rows: auto 100fr;
     }
 
@@ -62,22 +62,14 @@ const Main = styled.main`
 
     width: 100%;
 
-    ${mediaQuery("medium")} {
+    ${mediaQueryMinWidth("medium")} {
         width: ${props => (props.theme as ITheme).breakpoints.medium}px;
     }
 
-    ${mediaQuery("large")} {
+    ${mediaQueryMinWidth("large")} {
         width: ${props => (props.theme as ITheme).breakpoints.large}px;
     }
 `
-
-const NavigationPanelSite = ({ active }: { active: boolean}) => {
-    return <NavigationPanel active={ active } menu="site">
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/about/">About</Link></li>
-        <li><Link to="/work/">Work</Link></li>
-    </NavigationPanel>
-}
 
 interface ILayoutProps {
     children: React.ReactNode
@@ -95,8 +87,6 @@ const Layout = ({ children, pageTitle }: ILayoutProps) => {
         }
     `)
 
-    const [pageMenuActive, setPageMenuActive] = React.useState(false)
-
     return <>
         <GlobalStyle/>
         <Helmet>
@@ -106,12 +96,7 @@ const Layout = ({ children, pageTitle }: ILayoutProps) => {
         </Helmet>
         <Container>
             <Header>
-                <NavigationBar
-                    pageMenuActive={ pageMenuActive }
-                    onPageMenuClicked={ () => setPageMenuActive(!pageMenuActive) }
-                    siteTitle={ siteTitle }
-                />
-                <NavigationPanelSite active={ pageMenuActive }/>
+                <NavigationBar siteTitle={ siteTitle } />
             </Header>
             <Main>
                 { children }

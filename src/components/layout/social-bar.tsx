@@ -20,13 +20,13 @@ import {
 import {
     type ITheme,
     shake,
-    mediaQuery,
+    mediaQueryMinWidth,
 } from "../../style"
 
 const Aside = styled.aside`
     padding: .5rem 0 .5rem;
 
-    ${mediaQuery("medium")} {
+    ${mediaQueryMinWidth("medium")} {
         position: fixed;
         bottom: 0;
         left: 0;
@@ -51,7 +51,7 @@ const LinkList = styled.ul`
         animation: ${shake} 400ms ease 0s 1 normal forwards;
     }
 
-    ${mediaQuery("medium")} {
+    ${mediaQueryMinWidth("medium")} {
         align-items: center;
         flex-direction: column;
 

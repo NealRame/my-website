@@ -7,7 +7,7 @@ import * as React from "react"
 
 import {
     type ITheme,
-    mediaQuery,
+    mediaQueryMinWidth,
 } from "../style"
 
 const GlobalStyle = () => {
@@ -18,10 +18,10 @@ const GlobalStyle = () => {
             fontSize: 18,
             fontWeight: 400,
 
-            [mediaQuery("medium")]: {
+            [mediaQueryMinWidth("medium")]: {
                 fontSize: 21,
             },
-            [mediaQuery("large")]: {
+            [mediaQueryMinWidth("large")]: {
                 fontSize: 24,
             },
         },
@@ -45,11 +45,11 @@ const GlobalStyle = () => {
             fontSize: "2rem",
             margin: "2rem, 0, 2rem",
             
-            [mediaQuery("medium")]: {
+            [mediaQueryMinWidth("medium")]: {
                 fontSize: "3rem",
                 margin: "3rem 0 2.5rem",
             },
-            [mediaQuery("large")]: {
+            [mediaQueryMinWidth("large")]: {
                 fontSize: "4rem",
             }
         },
@@ -57,11 +57,11 @@ const GlobalStyle = () => {
             fontSize: "1.5rem",
             margin: ["1rem", 0, "1rem"],
 
-            [mediaQuery("medium")]: {
+            [mediaQueryMinWidth("medium")]: {
                 fontSize: "2rem",
                 margin: ["2rem", 0, "1.5rem"],
             },
-            [mediaQuery("large")]: {
+            [mediaQueryMinWidth("large")]: {
                 fontSize: "3rem",
             }
         },

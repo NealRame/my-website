@@ -16,6 +16,8 @@ import {
 import {
     type ITheme,
     glow,
+    mediaQueryMinWidth,
+    mediaQueryMaxWidth,
 } from "../../style"
 
 const navigationPanelFadeDuration = (theme: ITheme) => {
@@ -28,30 +30,45 @@ const navigationPanelSlideDuration = (theme: ITheme) => {
 
 const LinkList = styled.ul`
     display: flex;
-
-    align-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 1rem;
     justify-content: center;
+    gap: 1rem;
 
     font-family: lores-12;
-    font-size: 2rem;
-    font-weight: 900;
 
     list-style: none;
 
     padding: 0;
     margin: 0;
 
-    min-height: 100vh;
+    width: 100%;
 
-    & > li > a {
-        color: ${props => (props.theme as ITheme).navigationPanel.colors.foreground};
-        text-transform: uppercase;
+    ${mediaQueryMaxWidth("small")} {
+        align-content: center;
+        align-items: center;
+        flex-direction: column;
 
-        &:hover {
-            text-shadow: ${props => glow((props.theme as ITheme).navigationPanel.colors.foreground)};
+        font-size: 2rem;
+        font-weight: 900;
+
+        min-height: 100vh;
+
+        & > li.title {
+            display: none;
+        }
+    }
+
+    & > li {
+        &.title {
+            color: ${props => (props.theme as ITheme).navigationBar.colors.header};
+            flex-grow: 1;
+        }
+
+        & > a {
+            text-transform: uppercase;
+    
+            &:hover {
+                text-shadow: ${props => glow((props.theme as ITheme).navigationPanel.colors.foreground)};
+            }
         }
     }
 `
@@ -61,58 +78,64 @@ const navigationStyle = (theme: ITheme) => {
     const slideDuration = `${navigationPanelSlideDuration(theme)}ms`
 
     return css({
-        display: "none",
+        [mediaQueryMaxWidth("small")]: {
+            backgroundColor: theme.navigationPanel.colors.background,
 
-        position: "absolute",
-        left: 0,
-        top: 0,
-
-        opacity: 0,
-
-        width: "100vw",
-        height: "100vh",
-
-        zIndex: 1,
-
-        backgroundColor: theme.navigationPanel.colors.background,
-
-        "&.enter": {
-            display: "block",
-            "& > ul": {
-                transform: "translateY(-100%)",
-            },
-        },
-
-        "&.enter-active": {
-            display: "block",
-            opacity: 1,
-            transition: `opacity ${fadeDuration} ease-in-out`,
-
-            "& > ul": {
-                transform: "translateY(0)",
-                transition: `transform ${slideDuration} ease-in-out ${fadeDuration}`,
-            },
-        },
-
-        "&.enter-done": {
-            display: "block",
-            opacity: 1,
-        },
-
-        "&.exit": {
-            display: "block",
-            opacity: 1,
-        },
-
-        "&.exit-active": {
-            display: "block",
+            display: "none",
             opacity: 0,
-            transition: `opacity ${fadeDuration} ease-in-out ${slideDuration}`,
 
-            "& > ul": {
-                transform: "translateY(-100%)",
-                transition: `transform ${slideDuration} ease-in-out`,
-            }
+            position: "absolute",
+            left: 0,
+            top: 0,
+
+            width: "100vw",
+            height: "100vh",
+
+            zIndex: 1,
+
+            "&.enter": {
+                display: "block",
+                "& > ul": {
+                    transform: "translateY(-100%)",
+                },
+            },
+    
+            "&.enter-active": {
+                display: "block",
+                opacity: 1,
+                transition: `opacity ${fadeDuration} ease-in-out`,
+    
+                "& > ul": {
+                    transform: "translateY(0)",
+                    transition: `transform ${slideDuration} ease-in-out ${fadeDuration}`,
+                },
+            },
+
+            "&.enter-done": {
+                display: "block",
+                opacity: 1,
+            },
+    
+            "&.exit": {
+                display: "block",
+                opacity: 1,
+            },
+    
+            "&.exit-active": {
+                display: "block",
+                opacity: 0,
+                transition: `opacity ${fadeDuration} ease-in-out ${slideDuration}`,
+    
+                "& > ul": {
+                    transform: "translateY(-100%)",
+                    transition: `transform ${slideDuration} ease-in-out`,
+                }
+            },
+        },
+
+        [mediaQueryMinWidth("medium")]: {
+            display: "block",
+            opacity: 1,
         },
     })
 }
@@ -120,10 +143,9 @@ const navigationStyle = (theme: ITheme) => {
 interface INavigationProps {
     active: boolean
     children: React.ReactNode
-    menu: "site" | "social"
 }
 
-const NavigationPanel = ({ active, children, menu }: INavigationProps) => {
+const NavigationPanel = ({ active, children }: INavigationProps) => {
     const theme = useTheme() as ITheme
 
     const navEl = React.useRef<HTMLDivElement>(null)
@@ -134,7 +156,7 @@ const NavigationPanel = ({ active, children, menu }: INavigationProps) => {
         nodeRef={ navEl }
         timeout={ navigationPanelFadeDuration(theme) + navigationPanelSlideDuration(theme) }
     >
-        <nav css={ navigationStyle(theme) } id={ menu } ref={ navEl }>
+        <nav css={ navigationStyle(theme) } ref={ navEl }>
             <LinkList ref={ listEl }>{ children }</LinkList>
         </nav>
     </CSSTransition>
