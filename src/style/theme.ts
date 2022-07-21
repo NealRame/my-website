@@ -104,8 +104,8 @@ export const theme: ITheme = {
     },
     navigationPanel: {
         colors: {
-            background: color2,
-            foreground: color3,
+            background: color1,
+            foreground: color4,
         },
         fadeTransitionDuration: 200,
         slideTransitionDuration: 400,
