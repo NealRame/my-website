@@ -39,8 +39,7 @@ export interface INagivationBarTheme {
 
 export interface INagivationPanelTheme {
     colors: {
-        contactBackground: string
-        siteBackground: string
+        background: string
         foreground: string
     }
     fadeTransitionDuration: number
@@ -105,8 +104,7 @@ export const theme: ITheme = {
     },
     navigationPanel: {
         colors: {
-            contactBackground: color5,
-            siteBackground: color2,
+            background: color2,
             foreground: color3,
         },
         fadeTransitionDuration: 200,

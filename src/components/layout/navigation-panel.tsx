@@ -74,7 +74,7 @@ const navigationStyle = (theme: ITheme) => {
 
         zIndex: 1,
 
-        backgroundColor: theme.navigationPanel.colors.siteBackground,
+        backgroundColor: theme.navigationPanel.colors.background,
 
         "&.enter": {
             display: "block",
