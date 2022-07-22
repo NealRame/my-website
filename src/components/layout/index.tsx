@@ -4,7 +4,6 @@
 import {
     graphql,
     useStaticQuery,
-    Link,
 } from "gatsby"
 
 import styled from "@emotion/styled"
@@ -27,32 +26,6 @@ import {
 } from "../../style"
 
 import GlobalStyle from "../global-style"
-
-const Container = styled.div`
-    display: grid;
-
-    grid-template-rows: auto 100fr auto;
-
-    ${mediaQueryMinWidth("medium")} {
-        grid-template-rows: auto 100fr;
-    }
-
-    overflow: hidden;
-
-    margin: auto;
-    padding: 0;
-
-    width: 100%;
-    min-height: 100vh;
-`
-
-const Header = styled.header`
-    display: grid;
-
-    grid-template-rows: min-content 100fr;
-
-    width: 100vw;
-`
 
 const Main = styled.main`
     box-sizing: border-box;
@@ -94,15 +67,13 @@ const Layout = ({ children, pageTitle }: ILayoutProps) => {
                 { [siteTitle, pageTitle].filter(Boolean).join(" - ") }
             </title>
         </Helmet>
-        <Container>
-            <Header>
-                <NavigationBar siteTitle={ siteTitle } />
-            </Header>
-            <Main>
-                { children }
-            </Main>
-            <SocialBar/>
-        </Container>
+        <header>
+            <NavigationBar siteTitle={ siteTitle } />
+        </header>
+        <Main>
+            { children }
+        </Main>
+        <SocialBar/>
     </>
 }
 

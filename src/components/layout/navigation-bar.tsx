@@ -141,10 +141,12 @@ const NavigationBar = ({ siteTitle }: INavigationBarProps) => {
         boxSizing: "border-box",
         padding: "1rem",
 
-        [mediaQueryMaxWidth("small")]: {
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
 
-
-        },
+        zIndex: 1,
     }}>
         <Button
             onClick={ () => setPageMenuActive(!pageMenuActive) }>
