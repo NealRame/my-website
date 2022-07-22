@@ -35,7 +35,7 @@ const Aside = styled.aside`
     }
 `
 
-const LinkList = styled.ul`
+const List = styled.ul`
     display: flex;
 
     justify-content: center;
@@ -67,7 +67,7 @@ const LinkList = styled.ul`
 
 const SocialBar = () => {
     return <Aside>
-        <LinkList>
+        <List>
             <li>
                 <a
                     href="https://github.com/NealRame"
@@ -89,7 +89,7 @@ const SocialBar = () => {
                     target="_blank"
                 ><FontAwesomeIcon fixedWidth icon={ faTwitter }/></a>
             </li>
-        </LinkList>
+        </List>
     </Aside>
 }
 
