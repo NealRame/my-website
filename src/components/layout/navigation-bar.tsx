@@ -122,6 +122,10 @@ const Title = styled.h1`
             opacity: 1;
         }
     }
+
+    & > a {
+        color: inherit;
+    }
 `
 
 interface INavigationBarProps {
@@ -159,7 +163,7 @@ const NavigationBar = ({ siteTitle }: INavigationBarProps) => {
         <CSSTransition
             in={ pageMenuActive }
             timeout={ fadeDuration({ theme }) + slideDuration({ theme }) }
-        ><Title>{ siteTitle }</Title></CSSTransition>
+        ><Title><a href="/">{ siteTitle }</a></Title></CSSTransition>
         <NavigationPanel active={ pageMenuActive }>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/about/">About</Link></li>
