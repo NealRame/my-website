@@ -30,7 +30,7 @@ const navigationPanelSlideDuration = (theme: ITheme) => {
 
 const LinkList = styled.ul`
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     gap: 1rem;
 
     font-family: lores-12;
@@ -42,10 +42,18 @@ const LinkList = styled.ul`
 
     width: 100%;
 
+    & > li > a {
+        text-transform: uppercase;
+        &:hover {
+            text-shadow: ${props => glow((props.theme as ITheme).navigationPanel.colors.foreground)};
+        }
+    }
+
     ${mediaQueryMaxWidth("small")} {
         align-content: center;
         align-items: center;
         flex-direction: column;
+        justify-content: center;
 
         font-size: 2rem;
         font-weight: 900;
@@ -54,21 +62,6 @@ const LinkList = styled.ul`
 
         & > li.title {
             display: none;
-        }
-    }
-
-    & > li {
-        &.title {
-            color: ${props => (props.theme as ITheme).navigationBar.colors.header};
-            flex-grow: 1;
-        }
-
-        & > a {
-            text-transform: uppercase;
-    
-            &:hover {
-                text-shadow: ${props => glow((props.theme as ITheme).navigationPanel.colors.foreground)};
-            }
         }
     }
 `

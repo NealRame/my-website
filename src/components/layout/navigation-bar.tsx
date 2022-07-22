@@ -81,19 +81,21 @@ const Button = styled.button`
 `
 
 const Title = styled.h1`
-    display: none;
+    display: inline;
+    
+    color: ${color("header")};
+
+    font-family: lores-9-wide, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+
+    margin: 0;
 
     ${mediaQueryMaxWidth("small")} {
-        display: inline;
-
-        color: ${color("header")};
-
         font-family: lores-9-wide, sans-serif;
         font-size: 2rem;
         font-weight: 900;
-    
-        margin: 0;
-    
+
         text-align: center;
     
         &.enter {
@@ -131,14 +133,17 @@ const NavigationBar = ({ siteTitle }: INavigationBarProps) => {
     const [pageMenuActive, setPageMenuActive] = React.useState(false)
 
     return <div css={{
-        boxSizing: "border-box",
+        display: "grid",
+        gridTemplateColumns: "min-content 100fr",
 
+        alignItems: "baseline",
+
+        boxSizing: "border-box",
         padding: "1rem",
 
         [mediaQueryMaxWidth("small")]: {
-            display: "grid",
-            gridTemplateColumns: "min-content 100fr",
-            alignItems: "baseline",
+
+
         },
     }}>
         <Button
@@ -154,7 +159,6 @@ const NavigationBar = ({ siteTitle }: INavigationBarProps) => {
             timeout={ fadeDuration({ theme }) + slideDuration({ theme }) }
         ><Title>{ siteTitle }</Title></CSSTransition>
         <NavigationPanel active={ pageMenuActive }>
-            <li className="title">Neal.Rame.</li>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/about/">About</Link></li>
             <li><Link to="/work/">Work</Link></li>
