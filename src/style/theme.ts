@@ -31,6 +31,7 @@ export interface INagivationBarTheme {
     colors: {
         background: string
         foreground: string
+        border: string
         focus: string
         header: string
         hover: string
@@ -95,7 +96,8 @@ export const theme: ITheme = {
     },
     navigationBar: {
         colors: {
-            background: "transparent",
+            background: color1,
+            border: Color(color1).lighten(0.75).hex(),
             foreground: color3,
             header: color5,
             hover: color4,

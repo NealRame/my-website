@@ -133,10 +133,12 @@ interface INavigationBarProps {
 }
 
 const NavigationBar = ({ siteTitle }: INavigationBarProps) => {
-    const theme = useTheme()
+    const theme = useTheme() as ITheme
     const [pageMenuActive, setPageMenuActive] = React.useState(false)
 
     return <div css={{
+        backgroundColor: theme.navigationBar.colors.background,
+
         display: "grid",
         gridTemplateColumns: "min-content 100fr",
 
@@ -165,8 +167,8 @@ const NavigationBar = ({ siteTitle }: INavigationBarProps) => {
             timeout={ fadeDuration({ theme }) + slideDuration({ theme }) }
         ><Title><a href="/">{ siteTitle }</a></Title></CSSTransition>
         <NavigationPanel active={ pageMenuActive }>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/about/">About</Link></li>
+            <li><Link to="/#about">About</Link></li>
+            <li><Link to="/#contact">Contact</Link></li>
             <li><Link to="/work/">Work</Link></li>
         </NavigationPanel>
     </div>
