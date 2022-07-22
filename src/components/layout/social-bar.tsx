@@ -19,7 +19,7 @@ import {
 
 import {
     type ITheme,
-    shake,
+    horizontalShake,
     mediaQueryMinWidth,
 } from "../../style"
 
@@ -48,7 +48,7 @@ const LinkList = styled.ul`
     gap: 1rem;
 
     li:hover {
-        animation: ${shake} 400ms ease 0s 1 normal forwards;
+        animation: ${horizontalShake(2)} 400ms ease 0s 1 normal forwards;
     }
 
     ${mediaQueryMinWidth("medium")} {
