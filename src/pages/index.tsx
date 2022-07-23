@@ -13,14 +13,14 @@ import {
 } from "../components/sections"
 
 // markup
-const IndexPage = () => <Layout>
-    <Greetings/>
-    <div css={{
-        minHeight: "100vh",
-    }}>
-        <About/>
-        <Contact/>
-    </div>
-</Layout>
+const IndexPage = () => {
+    return <Layout>
+        <Greetings anchor="/#about"/>
+        <div css={{ minHeight: "100vh" }}>
+            <About/>
+            <Contact/>
+        </div>
+    </Layout>
+}
 
 export default IndexPage

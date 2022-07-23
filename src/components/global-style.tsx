@@ -18,6 +18,8 @@ const GlobalStyle = () => {
             fontSize: 18,
             fontWeight: 400,
 
+            scrollBehavior: "smooth",
+
             [mediaQueryMinWidth("medium")]: {
                 fontSize: 21,
             },
@@ -38,32 +40,8 @@ const GlobalStyle = () => {
         "h1, h2, h3, h4, h5, h6": {
             color: colors.header,
 
-            fontFamily: "Montserrat, sans-serif",
-            fontWeight: 400,
-        },
-        "h1": {
-            fontSize: "2rem",
-            margin: "2rem, 0, 2rem",
-            
-            [mediaQueryMinWidth("medium")]: {
-                fontSize: "3rem",
-                margin: "3rem 0 2.5rem",
-            },
-            [mediaQueryMinWidth("large")]: {
-                fontSize: "4rem",
-            }
-        },
-        "h2": {
-            fontSize: "1.5rem",
-            margin: ["1rem", 0, "1rem"],
-
-            [mediaQueryMinWidth("medium")]: {
-                fontSize: "2rem",
-                margin: ["2rem", 0, "1.5rem"],
-            },
-            [mediaQueryMinWidth("large")]: {
-                fontSize: "3rem",
-            }
+            fontFamily: "lores-9-wide, sans-serif",
+            fontWeight: 600,
         },
         a: {
             color: colors.link,

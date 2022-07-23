@@ -31,7 +31,10 @@ const Aside = styled.aside`
         bottom: 0;
         left: 0;
 
-        padding: 0 1rem 0;
+        padding: 0;
+        margin: 0;
+
+        width: 3rem;
     }
 `
 

@@ -27,23 +27,6 @@ import {
 
 import GlobalStyle from "../global-style"
 
-const Main = styled.main`
-    box-sizing: border-box;
-
-    margin: 0 auto;
-    padding: 0 1rem;
-
-    width: 100%;
-
-    ${mediaQueryMinWidth("medium")} {
-        width: ${props => (props.theme as ITheme).breakpoints.medium}px;
-    }
-
-    ${mediaQueryMinWidth("large")} {
-        width: ${props => (props.theme as ITheme).breakpoints.large}px;
-    }
-`
-
 interface ILayoutProps {
     children: React.ReactNode
     pageTitle?: string
@@ -70,9 +53,9 @@ const Layout = ({ children, pageTitle }: ILayoutProps) => {
         <header>
             <NavigationBar siteTitle={ siteTitle } />
         </header>
-        <Main>
+        <main>
             { children }
-        </Main>
+        </main>
         <SocialBar/>
     </>
 }

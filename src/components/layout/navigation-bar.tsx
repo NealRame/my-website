@@ -143,9 +143,13 @@ const NavigationBar = ({ siteTitle }: INavigationBarProps) => {
         gridTemplateColumns: "min-content 100fr",
 
         alignItems: "baseline",
+        alignContent: "center",
 
         boxSizing: "border-box",
-        padding: "1rem",
+
+        padding: "0 1rem",
+
+        height: "3rem",
 
         position: "fixed",
         top: 0,

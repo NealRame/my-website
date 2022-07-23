@@ -6,6 +6,8 @@ import {
     jsx,
 } from "@emotion/react"
 
+import * as React from "react"
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 import {
@@ -20,14 +22,12 @@ import {
     verticalShake,
 } from "../../style"
 
-const GreetingScrollButton = styled.button`
+const StyledLink = styled.a`
     background: none;
     border: none;
 
     color: ${props => (props.theme as ITheme).colors.link};
     cursor: pointer;
-
-    display: block;
 
     font-size: 2rem;
 
@@ -36,7 +36,21 @@ const GreetingScrollButton = styled.button`
     animation: ${verticalShake(2)} 8s ease-in-out 0s infinite alternate-reverse none;
 `
 
-export const Greetings = () => <section css={{
+interface IScrollToButtonProps {
+    anchor: string
+}
+
+const ScrollToButton = ({ anchor }: IScrollToButtonProps) => {
+    return <StyledLink href={ anchor }>
+        <FontAwesomeIcon icon={faAnglesDown}/>
+    </StyledLink>
+}
+
+interface IGreetingsProps {
+    anchor: string
+}
+
+export const Greetings = ({ anchor }: IGreetingsProps) => <section css={{
     display: "grid",
     gridTemplateRows: "100fr auto",
     height: "100vh",
@@ -46,7 +60,5 @@ export const Greetings = () => <section css={{
         "HOW ARE YOU FEELING TODAY?",
         "SHALL WE PLAY A GAME?",
     ]}/>
-    <GreetingScrollButton>
-        <FontAwesomeIcon icon={ faAnglesDown }/>
-    </GreetingScrollButton>
+    <ScrollToButton anchor={ anchor }/>
 </section>

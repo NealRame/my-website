@@ -35,7 +35,9 @@ export interface INagivationBarTheme {
         focus: string
         header: string
         hover: string
-    }
+    },
+    height: number | string,
+    padding: number | string,
 }
 
 export interface INagivationPanelTheme {
@@ -46,17 +48,23 @@ export interface INagivationPanelTheme {
     fadeTransitionDuration: number
     slideTransitionDuration: number
 }
-
-export interface ITypewriterTheme {
+export interface IContentSectionTheme {
     colors: {
-        foreground: string
-    }
+        border: string,
+    },
+    padding: number | string
 }
 
 export interface IError404Theme {
     colors: {
         foreground: string
         ghost: string
+    }
+}
+
+export interface ITypewriterTheme {
+    colors: {
+        foreground: string
     }
 }
 
@@ -69,15 +77,16 @@ export interface ITheme extends Theme {
     }
     navigationBar: INagivationBarTheme
     navigationPanel: INagivationPanelTheme
+    contentSection: IContentSectionTheme
     error404: IError404Theme
     typewriter: ITypewriterTheme
 }
 
 export const color1 = Color("#0e0f10").hex()
-export const color2 = Color("#5D6C75").hex()
-export const color3 = Color("#FEFBEE").hex()
+export const color2 = Color("#cbcac5").hex()
+export const color3 = Color("#6296b6").hex()
 export const color4 = Color("#aff1fe").hex()
-export const color5 = Color("#FA5C5C").hex()
+export const color5 = Color("#fa5c5c").hex()
 
 export const theme: ITheme = {
     breakpoints: {
@@ -103,6 +112,14 @@ export const theme: ITheme = {
             hover: color4,
             focus: color4,
         },
+        height: "3rem",
+        padding: "1rem",
+    },
+    contentSection: {
+        colors: {
+            border: Color(color1).lighten(1).hex(),
+        },
+        padding: "3rem 3rem 0",
     },
     navigationPanel: {
         colors: {
