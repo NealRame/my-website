@@ -2,7 +2,7 @@ import * as React from "react"
 
 import {
     StyledSection,
-} from "./styledSection"
+} from "./styled-section"
 
 export const Contact = () => <StyledSection id="contact">
     <h1>Contact</h1>

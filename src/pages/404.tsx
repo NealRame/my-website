@@ -12,7 +12,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 
 import Layout from "../components/layout"
-import { ITheme } from "../style"
+
+import {
+    type ITheme,
+} from "../style"
 
 const Error404 = styled.div`
     color: ${props => (props.theme as ITheme).error404.colors.foreground};
