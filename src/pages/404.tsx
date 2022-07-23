@@ -26,7 +26,7 @@ const Error404 = styled.div`
     flex-direction: column;
     align-items: center;
 
-    height: 100%;
+    padding: ${props => (props.theme as ITheme).error404.padding};
 
     .ghost {
         color: ${props => (props.theme as ITheme).error404.colors.ghost};
@@ -37,7 +37,7 @@ const Error404 = styled.div`
         top: 50%;
         left: 50%;
 
-        transform: translate(-50%, -50%);
+        transform: translateX(-50%);
 
         z-index: -1;
     }

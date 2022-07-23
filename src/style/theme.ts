@@ -74,6 +74,7 @@ export interface IError404Theme {
         foreground: string
         ghost: string
     }
+    padding: number | string
 }
 
 export interface ITypewriterTheme {
@@ -161,6 +162,7 @@ export const theme: ITheme = {
             foreground: color3,
             ghost: Color(color1).lighten(.75).hex(),
         },
+        padding: "5rem 3rem 0",
     },
     typewriter: {
         colors: {
