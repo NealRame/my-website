@@ -17,7 +17,6 @@ import {
 } from "react-helmet"
 
 import NavigationBar from "./navigation-bar"
-import NavigationPanel from "./navigation-panel"
 import SocialBar from "./social-bar"
 
 import {
