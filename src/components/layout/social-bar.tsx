@@ -34,7 +34,7 @@ const Aside = styled.aside`
         padding: 0;
         margin: 0;
 
-        width: 3rem;
+        width: ${props => (props.theme as ITheme).socialBar.width};
     }
 `
 
@@ -48,7 +48,7 @@ const List = styled.ul`
     padding: 0;
     margin: 0;
 
-    gap: 1rem;
+    gap: ${props => (props.theme as ITheme).socialBar.gap};
 
     li:hover {
         animation: ${horizontalShake(2)} 400ms ease 0s 1 normal forwards;
@@ -59,7 +59,7 @@ const List = styled.ul`
         flex-direction: column;
 
         &::after {
-            border-left: 1px solid ${props => (props.theme as ITheme).colors.link};
+            border-left: 1px solid ${props => (props.theme as ITheme).socialBar.colors.border};
             content: "";
             width: 1px;
             height: 128px;

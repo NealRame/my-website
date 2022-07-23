@@ -48,10 +48,24 @@ export interface INagivationPanelTheme {
     fadeTransitionDuration: number
     slideTransitionDuration: number
 }
+
+export interface ISocialBarTheme {
+    colors: {
+        border: string
+    }
+    gap: number | string
+    width: number | string
+}
+
 export interface IContentSectionTheme {
     colors: {
-        border: string,
-    },
+        border: string
+        index: string
+    }
+    fontSizes: {
+        index: number | string
+    }
+    headerMargin: number | string
     padding: number | string
 }
 
@@ -77,6 +91,7 @@ export interface ITheme extends Theme {
     }
     navigationBar: INagivationBarTheme
     navigationPanel: INagivationPanelTheme
+    socialBar: ISocialBarTheme
     contentSection: IContentSectionTheme
     error404: IError404Theme
     typewriter: ITypewriterTheme
@@ -112,14 +127,26 @@ export const theme: ITheme = {
             hover: color4,
             focus: color4,
         },
-        height: "3rem",
+        height: "4rem",
         padding: "1rem",
+    },
+    socialBar: {
+        colors: {
+            border: color4,
+        },
+        gap: "1rem",
+        width: "3rem",
     },
     contentSection: {
         colors: {
-            border: Color(color1).lighten(1).hex(),
+            border: Color(color1).lighten(3).hex(),
+            index: color4,
         },
-        padding: "3rem 3rem 0",
+        fontSizes: {
+            index: "1rem",
+        },
+        headerMargin: "0 0 2rem",
+        padding: "5rem 3rem 0",
     },
     navigationPanel: {
         colors: {

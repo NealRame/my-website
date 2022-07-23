@@ -27,7 +27,6 @@ import {
 
 import {
     type ITheme,
-    mediaQueryMinWidth,
     mediaQueryMaxWidth,
 } from "../../style"
 
@@ -149,7 +148,7 @@ const NavigationBar = ({ siteTitle }: INavigationBarProps) => {
 
         padding: "0 1rem",
 
-        height: "3rem",
+        height: theme.navigationBar.height,
 
         position: "fixed",
         top: 0,
