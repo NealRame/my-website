@@ -131,24 +131,6 @@ export const theme: ITheme = {
         height: "4rem",
         padding: "1rem",
     },
-    socialBar: {
-        colors: {
-            border: color4,
-        },
-        gap: "1rem",
-        width: "3rem",
-    },
-    contentSection: {
-        colors: {
-            border: Color(color1).lighten(3).hex(),
-            index: color4,
-        },
-        fontSizes: {
-            index: "1rem",
-        },
-        headerMargin: "0 0 2rem",
-        padding: "5rem 3rem 0",
-    },
     navigationPanel: {
         colors: {
             background: color1,
@@ -163,6 +145,24 @@ export const theme: ITheme = {
             ghost: Color(color1).lighten(.75).hex(),
         },
         padding: "5rem 3rem 0",
+    },
+    contentSection: {
+        colors: {
+            border: Color(color1).lighten(3).hex(),
+            index: color4,
+        },
+        fontSizes: {
+            index: "1rem",
+        },
+        headerMargin: "0 0 2rem",
+        padding: "5rem 3rem 0",
+    },
+    socialBar: {
+        colors: {
+            border: color4,
+        },
+        gap: "1rem",
+        width: "3rem",
     },
     typewriter: {
         colors: {
