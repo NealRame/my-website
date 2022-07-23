@@ -26,7 +26,6 @@ const Error404 = styled.div`
     flex-direction: column;
     align-items: center;
 
-
     height: 100%;
 
     .ghost {
