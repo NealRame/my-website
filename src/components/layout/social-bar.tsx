@@ -1,10 +1,10 @@
 /** @jsx jsx */
 /** @jsxFrag React.Fragment */
 
+import styled from "@emotion/styled"
 import {
     jsx,
 } from "@emotion/react"
-import styled from "@emotion/styled"
 
 import {
     FontAwesomeIcon,
