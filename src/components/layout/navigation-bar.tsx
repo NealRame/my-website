@@ -170,8 +170,8 @@ const NavigationBar = ({ siteTitle }: INavigationBarProps) => {
             timeout={ fadeDuration({ theme }) + slideDuration({ theme }) }
         ><Title><a href="/">{ siteTitle }</a></Title></CSSTransition>
         <NavigationPanel active={ pageMenuActive }>
-            <li><Link to="/#about">About</Link></li>
-            <li><Link to="/#contact">Contact</Link></li>
+            <li><Link onClick={ () => setPageMenuActive(false) } to="/#about">About</Link></li>
+            <li><Link onClick={ () => setPageMenuActive(false) } to="/#contact">Contact</Link></li>
             <li><Link to="/work/">Work</Link></li>
         </NavigationPanel>
     </div>
