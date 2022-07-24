@@ -15,6 +15,11 @@ import {
 } from "../../style"
 
 const StyledList = styled.ul`
+    display: flex;
+
+    flex-direction: column;
+    gap: .25rem;
+
     list-style: none;
 
     margin: 0;
