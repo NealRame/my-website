@@ -7,9 +7,8 @@ import {
     useTheme,
 } from "@emotion/react"
 
-import {
-    StyledSection,
-} from "../styled-section"
+import StyledSection from "../section"
+import StyledSectionHeader from "./section-header"
 
 import {
     type ITheme,
@@ -45,7 +44,7 @@ const StyledList = styled.ul`
 export const About = () => {
     const theme = useTheme() as ITheme
     return <StyledSection id="about">
-        <h1>About Me</h1>
+        <StyledSectionHeader>About Me</StyledSectionHeader>
         <p>
             Hi there! I'm a software engineer with a passion for building things
             that run in the browser.

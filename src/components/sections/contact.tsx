@@ -4,13 +4,12 @@ import {
     jsx,
 } from "@emotion/react"
 
-import {
-    StyledSection,
-} from "../styled-section"
+import StyledSection from "../section"
+import StyledSectionHeader from "./section-header"
 
 export const Contact = () => {
     return <StyledSection id="contact" css={{ textAlign: "center" }}>
-        <h1>Contact</h1>
+        <StyledSectionHeader>Contact</StyledSectionHeader>
         <p>
             I am not currently looking for new opportunities.
         </p>
