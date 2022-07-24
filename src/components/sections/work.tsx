@@ -36,9 +36,7 @@ const Title = styled.h2`
 const Post = ({ post }: { post: IPostEntryProps }) => {
     return <article key={ post.id }>
         <Title>
-            <Link to={ `/work/${post.slug}` }>
-                { post.frontmatter.title }
-            </Link>
+            <Link to={ `/work/${post.slug}` }>{ post.frontmatter.title }</Link>
         </Title>
         Posted: { post.frontmatter.date }
     </article>
