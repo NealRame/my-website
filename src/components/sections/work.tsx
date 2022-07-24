@@ -7,7 +7,7 @@ import styled from "@emotion/styled"
 import * as React from "react"
 
 import StyledSection from "../section"
-import StyledSectionHeader from "./section-header"
+import StyledSectionHeader from "../section-header"
 
 const Title = styled.h2`
     padding-bottom: 0;

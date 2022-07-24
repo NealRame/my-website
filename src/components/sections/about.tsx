@@ -8,7 +8,7 @@ import {
 } from "@emotion/react"
 
 import StyledSection from "../section"
-import StyledSectionHeader from "./section-header"
+import StyledSectionHeader from "../section-header"
 
 import {
     type ITheme,

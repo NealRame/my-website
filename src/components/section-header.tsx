@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 import {
     type ITheme,
-} from "../../style"
+} from "../style"
 
 const StyledSectionHeader = styled.h1`
     display: grid;
