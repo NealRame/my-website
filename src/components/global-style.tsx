@@ -21,9 +21,6 @@ const GlobalStyle = () => {
             scrollBehavior: "smooth",
 
             [mediaQueryMinWidth("medium")]: {
-                fontSize: 21,
-            },
-            [mediaQueryMinWidth("large")]: {
                 fontSize: 24,
             },
         },
@@ -48,7 +45,7 @@ const GlobalStyle = () => {
         a: {
             color: colors.link,
             textDecoration: "none",
-        }
+        },
     }}/>
 }
 
