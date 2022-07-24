@@ -53,12 +53,10 @@ export const About = () => {
         <p>
             Hi there! I'm a software engineer with a passion for building things
             that run in the browser.
-        </p>
-        <p>
+        </p><p>
             I am currently employed by the company <i>Arobas Music</i> where I
             participate in the development of the <a href="https://www.guitar-pro.com/">Guitar Pro</a> application.
-        </p>
-        <p>
+        </p><p>
             Here are a few technologies I have worked with:
         </p>
         <div css={{
@@ -73,21 +71,15 @@ export const About = () => {
                 <li>React</li>
                 <li>Vue.js</li>
                 <li>Node.js</li>
-            </StyledList>
-
-            <StyledList>
+            </StyledList><StyledList>
                 <li>C++</li>
                 <li>CMake</li>
                 <li>Conan</li>
-            </StyledList>
-
-            <StyledList>
+            </StyledList><StyledList>
                 <li>Docker</li>
                 <li>Jenkins</li>
                 <li>Travis</li>
-            </StyledList>
-
-            <StyledList>
+            </StyledList><StyledList>
                 <li>Python</li>
                 <li>Django</li>
             </StyledList>
