@@ -42,6 +42,12 @@ const GlobalStyle = () => {
             fontFamily: "lores-9-wide, sans-serif",
             fontWeight: 600,
         },
+        h1: {
+            fontSize: "2rem",
+        },
+        h2: {
+            fontSize: "1.25rem",
+        },
         a: {
             color: colors.link,
             textDecoration: "none",

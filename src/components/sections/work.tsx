@@ -7,7 +7,9 @@ import styled from "@emotion/styled"
 
 import * as React from "react"
 
-import Layout from "../../components/layout"
+import {
+    StyledSection,
+} from "../styled-section"
 
 interface IPostEntryProps {
     frontmatter: {
@@ -26,7 +28,7 @@ interface IAllPostQueryProps {
     }
 }
 
-const Title = styled.h1`
+const Title = styled.h2`
     padding-bottom: 0;
     margin: 0;
 `
@@ -42,27 +44,9 @@ const Post = ({ post }: { post: IPostEntryProps }) => {
     </article>
 }
 
-const WorkPage = ({ data }: IAllPostQueryProps) => (
-    <Layout pageTitle="Work">
-        { data.allMdx.nodes.map(node => (
-            <Post post={ node } key={ node.id }/>
-        )) }
-    </Layout>
+export const WorkSection = ({ data }: IAllPostQueryProps) => (
+    <StyledSection id="work">
+        <h1>Work</h1>
+        { data.allMdx.nodes.map(node => <Post post={ node } key={ node.id }/>) }
+    </StyledSection>
 )
-
-export const query = graphql`
-    query {
-        allMdx(sort: {fields: frontmatter___date, order: DESC}) {
-            nodes {
-                frontmatter {
-                    date(formatString: "MMMM D, YYYY")
-                    title
-                }
-                id
-                slug
-            }
-        }
-    }
-`
-
-export default WorkPage

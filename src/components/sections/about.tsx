@@ -9,7 +9,7 @@ import {
 
 import {
     StyledSection,
-} from "./styled-section"
+} from "../styled-section"
 
 import {
     type ITheme,

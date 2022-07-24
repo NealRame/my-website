@@ -1,3 +1,5 @@
+export * from "./greetings"
+
 export * from "./about"
 export * from "./contact"
-export * from "./greetings"
+export * from "./work"

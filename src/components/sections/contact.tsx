@@ -6,7 +6,7 @@ import {
 
 import {
     StyledSection,
-} from "./styled-section"
+} from "../styled-section"
 
 export const Contact = () => {
     return <StyledSection id="contact" css={{ textAlign: "center" }}>
