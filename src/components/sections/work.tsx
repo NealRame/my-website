@@ -44,7 +44,7 @@ const Post = ({ post }: { post: IPostEntryProps }) => {
     </article>
 }
 
-export const WorkSection = ({ data }: IAllPostQueryProps) => (
+export const Work = ({ data }: IAllPostQueryProps) => (
     <StyledSection id="work">
         <h1>Work</h1>
         { data.allMdx.nodes.map(node => <Post post={ node } key={ node.id }/>) }

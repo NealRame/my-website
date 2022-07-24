@@ -15,7 +15,7 @@ import {
     About,
     Contact,
     Greetings,
-    WorkSection,
+    Work,
 } from "../components/sections"
 
 import {
@@ -39,7 +39,7 @@ interface IAllPostQueryProps {
     }
 }
 
-const SectionsWrapper = styled.div`
+const Sections = styled.div`
     ${mediaQueryMinWidth("medium")} {
         & > section:last-child {
             min-height: 100vh;
@@ -50,11 +50,11 @@ const SectionsWrapper = styled.div`
 const IndexPage = ({ data }: IAllPostQueryProps) => {
     return <Layout>
         <Greetings anchor="/#about"/>
-        <SectionsWrapper css={{ minHeight: "100vh" }}>
+        <Sections css={{ minHeight: "100vh" }}>
             <About/>
             <Contact/>
-            <WorkSection data={ data }/>
-        </SectionsWrapper>
+            <Work data={ data }/>
+        </Sections>
     </Layout>
 }
 
