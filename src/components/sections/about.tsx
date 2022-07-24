@@ -30,14 +30,14 @@ const StyledList = styled.ul`
         font-size: 0.8rem;
 
         &::before {
-            content: "✱";
-
             background-color: ${props => (props.theme as ITheme).colors.link};
             color: ${props => (props.theme as ITheme).colors.background};
 
-            font-size: 0.6rem;
+            content: "✱";
 
-            padding: 0 2px;
+            font-size: 0.5rem;
+
+            padding: 2px 2px 0;
         }
     }
 `
