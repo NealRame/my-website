@@ -172,7 +172,7 @@ const NavigationBar = ({ siteTitle }: INavigationBarProps) => {
         <NavigationPanel active={ pageMenuActive }>
             <li><Link onClick={ () => setPageMenuActive(false) } to="/#about">About</Link></li>
             <li><Link onClick={ () => setPageMenuActive(false) } to="/#contact">Contact</Link></li>
-            <li><Link onClick={ () => setPageMenuActive(false) } to="/#work">Work</Link></li>
+            <li><Link onClick={ () => setPageMenuActive(false) } to="/#projects">Projects</Link></li>
         </NavigationPanel>
     </div>
 }

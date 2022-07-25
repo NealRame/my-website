@@ -15,7 +15,7 @@ import {
     About,
     Contact,
     Greetings,
-    Work,
+    Projects,
 } from "../components/sections"
 
 import {
@@ -30,13 +30,13 @@ const Sections = styled.div`
     }
 `
 
-const IndexPage = ({ data }: IAllWorkQueryProps) => {
+const IndexPage = ({ data }: IAllProjectQueryProps) => {
     return <Layout>
         <Greetings anchor="/#about"/>
         <Sections css={{ minHeight: "100vh" }}>
             <About/>
             <Contact/>
-            <Work data={ data }/>
+            <Projects data={ data }/>
         </Sections>
     </Layout>
 }

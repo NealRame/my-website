@@ -1,4 +1,4 @@
-interface IWorkEntryProps {
+interface IProjectEntryProps {
     frontmatter: {
         date: string
         description: string
@@ -9,10 +9,10 @@ interface IWorkEntryProps {
     slug: string
 }
 
-interface IAllWorkQueryProps {
+interface IAllProjectQueryProps {
     data: {
         allMdx: {
-            nodes: Array<IWorkEntryProps>
+            nodes: Array<IProjectEntryProps>
         }
     }
 }

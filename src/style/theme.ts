@@ -69,6 +69,15 @@ export interface IContentSectionTheme {
     padding: number | string
 }
 
+export interface IWorkSectionTheme {
+    colors: {
+        background: string
+        border: string
+    }
+    borderRadius: number | string
+    padding: number | string
+}
+
 export interface IError404Theme {
     colors: {
         foreground: string
@@ -94,6 +103,7 @@ export interface ITheme extends Theme {
     navigationPanel: INagivationPanelTheme
     socialBar: ISocialBarTheme
     contentSection: IContentSectionTheme
+    projectItem: IWorkSectionTheme
     error404: IError404Theme
     typewriter: ITypewriterTheme
 }
@@ -157,6 +167,14 @@ export const theme: ITheme = {
         headerMargin: "0 0 2rem",
         padding: "5rem 3rem 0",
     },
+    projectItem: {
+        colors: {
+            background: Color(color1).mix(Color(color3), 0.1).hex(),
+            border: color3,
+        },
+        borderRadius: "4px",
+        padding: "1rem",
+    },
     socialBar: {
         colors: {
             border: color4,
@@ -167,6 +185,6 @@ export const theme: ITheme = {
     typewriter: {
         colors: {
             foreground: Color(color4).lighten(0.05).hex(),
-        }
-    }
+        },
+    },
 }
