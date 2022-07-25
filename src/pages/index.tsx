@@ -22,23 +22,6 @@ import {
     mediaQueryMinWidth,
 } from "../style"
 
-interface IPostEntryProps {
-    frontmatter: {
-        date: string
-        title: string
-    }
-    id: string
-    slug: string
-}
-
-interface IAllPostQueryProps {
-    data: {
-        allMdx: {
-            nodes: Array<IPostEntryProps>
-        }
-    }
-}
-
 const Sections = styled.div`
     ${mediaQueryMinWidth("medium")} {
         & > section:last-child {
@@ -47,7 +30,7 @@ const Sections = styled.div`
     }
 `
 
-const IndexPage = ({ data }: IAllPostQueryProps) => {
+const IndexPage = ({ data }: IAllWorkQueryProps) => {
     return <Layout>
         <Greetings anchor="/#about"/>
         <Sections css={{ minHeight: "100vh" }}>
@@ -64,6 +47,8 @@ export const query = graphql`
             nodes {
                 frontmatter {
                     date(formatString: "MMMM D, YYYY")
+                    description
+                    github
                     title
                 }
                 id

@@ -1,16 +1,18 @@
-interface IPostEntryProps {
+interface IWorkEntryProps {
     frontmatter: {
         date: string
+        description: string
+        github: string
         title: string
     }
     id: string
     slug: string
 }
 
-interface IAllPostQueryProps {
+interface IAllWorkQueryProps {
     data: {
         allMdx: {
-            nodes: Array<IPostEntryProps>
+            nodes: Array<IWorkEntryProps>
         }
     }
 }
