@@ -7,8 +7,10 @@ import {
     useTheme,
 } from "@emotion/react"
 
-import StyledSection from "../section"
-import StyledSectionHeader from "../section-header"
+import {
+    Section,
+    SectionHeader,
+} from "../section"
 
 import {
     type ITheme,
@@ -48,8 +50,8 @@ const StyledList = styled.ul`
 
 export const About = () => {
     const theme = useTheme() as ITheme
-    return <StyledSection id="about">
-        <StyledSectionHeader>About Me</StyledSectionHeader>
+    return <Section id="about">
+        <SectionHeader>About Me</SectionHeader>
         <p>
             Hi there! I'm a software engineer with a passion for building things
             that run in the browser.
@@ -84,5 +86,5 @@ export const About = () => {
                 <li>Django</li>
             </StyledList>
         </div>
-    </StyledSection>
+    </Section>
 }

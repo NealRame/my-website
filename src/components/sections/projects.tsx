@@ -1,8 +1,4 @@
 import {
-    isNil,
-} from "ramda"
-
-import {
     Link,
 } from "gatsby"
 
@@ -18,8 +14,10 @@ import {
     faGithub,
 } from "@fortawesome/free-brands-svg-icons"
 
-import Section from "../section"
-import SectionHeader from "../section-header"
+import {
+    Section,
+    SectionHeader,
+} from "../section"
 
 import {
     ITheme,

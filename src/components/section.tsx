@@ -4,7 +4,7 @@ import {
     mediaQueryMinWidth,
 } from "../style"
 
-const StyledSection = styled.section`
+export const Section = styled.section`
     box-sizing: border-box;
 
     padding: ${props => (props.theme as ITheme).contentSection.padding};
@@ -19,6 +19,30 @@ const StyledSection = styled.section`
     }
 `
 
+export const SectionHeader = styled.h1`
+    display: grid;
+    grid-template-columns: auto auto 100fr;
+    align-items: baseline;
+    gap: 1rem;
 
+    margin: ${props => (props.theme as ITheme).contentSection.headerMargin};
 
-export default StyledSection
+    &::before {
+        color: ${props => (props.theme as ITheme).contentSection.colors.index};
+
+        counter-increment: content-section;
+        content: counter(content-section, decimal-leading-zero) ". ";
+
+        font-size: ${props => (props.theme as ITheme).contentSection.fontSizes.index};
+    }
+
+    &::after {
+        align-self: center;
+
+        border-bottom: 1px solid ${(props => (props.theme as ITheme).contentSection.colors.border)};
+
+        content: "";
+
+        height: 1px;
+    }
+`

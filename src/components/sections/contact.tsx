@@ -4,17 +4,19 @@ import {
     jsx,
 } from "@emotion/react"
 
-import StyledSection from "../section"
-import StyledSectionHeader from "../section-header"
+import {
+    Section,
+    SectionHeader,
+} from "../section"
 
 export const Contact = () => {
-    return <StyledSection id="contact" css={{ textAlign: "center" }}>
-        <StyledSectionHeader>Contact</StyledSectionHeader>
+    return <Section id="contact" css={{ textAlign: "center" }}>
+        <SectionHeader>Contact</SectionHeader>
         <p>
             I am not currently looking for new opportunities.
         </p>
         <p>
             However if you have any questions, feel free to <a href="mailto:julien@graziano.fr">email me</a>.
         </p>
-    </StyledSection>
+    </Section>
 }
