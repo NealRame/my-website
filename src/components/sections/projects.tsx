@@ -49,6 +49,8 @@ const Project = styled.div`
 
     padding: ${props => (props.theme as ITheme).projectItem.padding};
 
+    max-height: 320px;
+
     transform: scale(1, 1);
     transition:
         transform 0.2s ease-in-out,
@@ -81,6 +83,11 @@ const ProjectFooter = styled.footer`
     font-size: 0.75rem;
 `
 
+const ProjectDescription = styled.p`
+    overflow: hidden;
+    text-overflow: ellipsis;
+`
+
 const Github = ({ repository }: { repository: string }) => {
     return <a href={ `https://github.com/${repository}` } target="_blank" >
         <FontAwesomeIcon icon={ faGithub }/>
@@ -103,9 +110,7 @@ export const Projects = ({ data }: IAllProjectQueryProps) => {
                         </ProjectTitle>
                         { github && <Github repository={ github }/> }
                     </ProjectHeader>
-
-                    <p>{ description }</p>
-
+                    <ProjectDescription>{ description }</ProjectDescription>
                     <ProjectFooter>
                         <span>Posted: { date }</span>
                     </ProjectFooter>
