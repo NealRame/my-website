@@ -127,36 +127,52 @@ const Title = styled.h1`
     }
 `
 
+const NavigationBarWrapper = styled.div`
+    background-color: ${color("background")};
+
+    display: grid;
+    grid-template-columns: min-content 100fr;
+
+    align-items: baseline;
+    align-content: center;
+
+    box-sizing: border-box;
+
+    padding: 0 1rem;
+
+    height: ${props => (props.theme as ITheme).navigationBar.height};
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 1;
+
+    transition:
+        box-shadow ${slideDuration}ms ease-in-out,
+        -webkit-box-shadow ${slideDuration}ms ease-in-out;
+
+    &.sticky {
+        -webkit-box-shadow: 0px 0px 16px 8px rgba(0, 0, 0, 0.25);
+        box-shadow: 0px 0px 16px 8px rgba(0, 0, 0, 0.25);
+
+        transition:
+            box-shadow ${slideDuration}ms ease-in-out,
+            -webkit-box-shadow ${slideDuration}ms ease-in-out;
+    }
+`
+
 interface INavigationBarProps {
     siteTitle: string
+    sticky: boolean
 }
 
-const NavigationBar = ({ siteTitle }: INavigationBarProps) => {
+const NavigationBar = ({ siteTitle, sticky }: INavigationBarProps) => {
     const theme = useTheme() as ITheme
     const [pageMenuActive, setPageMenuActive] = React.useState(false)
 
-    return <div css={{
-        backgroundColor: theme.navigationBar.colors.background,
-
-        display: "grid",
-        gridTemplateColumns: "min-content 100fr",
-
-        alignItems: "baseline",
-        alignContent: "center",
-
-        boxSizing: "border-box",
-
-        padding: "0 1rem",
-
-        height: theme.navigationBar.height,
-
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-
-        zIndex: 1,
-    }}>
+    return <NavigationBarWrapper className={ sticky ? "sticky" : ""}>
         <Button
             onClick={ () => setPageMenuActive(!pageMenuActive) }>
             <FontAwesomeIcon
@@ -174,7 +190,7 @@ const NavigationBar = ({ siteTitle }: INavigationBarProps) => {
             <li><Link onClick={ () => setPageMenuActive(false) } to="/#contact">Contact</Link></li>
             <li><Link onClick={ () => setPageMenuActive(false) } to="/#projects">Projects</Link></li>
         </NavigationPanel>
-    </div>
+    </NavigationBarWrapper>
 }
 
 export default NavigationBar

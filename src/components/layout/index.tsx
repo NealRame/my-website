@@ -42,6 +42,19 @@ const Layout = ({ children, pageTitle }: ILayoutProps) => {
         }
     `)
 
+    const mainEl = React.useRef<HTMLDivElement>(null)
+    const [stickyNavigationBar, setStickyNavigationBar] = React.useState(false)
+
+    const onScroll = (ev: Event) => {
+        const { y: yOffset } = mainEl.current?.getBoundingClientRect() ?? { y: 0 }
+        setStickyNavigationBar(yOffset < 0)
+    }
+
+    React.useEffect(() => {
+        window.addEventListener("scroll", onScroll)
+        return () => window.removeEventListener("scroll", onScroll)
+    })
+
     return <>
         <GlobalStyle/>
         <Helmet>
@@ -50,9 +63,9 @@ const Layout = ({ children, pageTitle }: ILayoutProps) => {
             </title>
         </Helmet>
         <header>
-            <NavigationBar siteTitle={ siteTitle } />
+            <NavigationBar siteTitle={ siteTitle } sticky={ stickyNavigationBar }/>
         </header>
-        <main>
+        <main ref={ mainEl }>
             { children }
         </main>
         <SocialBar/>
