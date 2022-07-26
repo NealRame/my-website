@@ -158,7 +158,7 @@ export const theme: ITheme = {
     },
     contentSection: {
         colors: {
-            border: Color(color1).lighten(3).hex(),
+            border: color3,
             index: color4,
         },
         fontSizes: {
