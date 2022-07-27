@@ -128,6 +128,7 @@ const Title = styled.h1`
 `
 
 const NavigationBarWrapper = styled.div`
+    border-bottom: 1px solid ${color("background")};
     background-color: ${color("background")};
 
     display: grid;
@@ -150,14 +151,18 @@ const NavigationBarWrapper = styled.div`
     z-index: 1;
 
     transition:
+        border-color ${slideDuration}ms ease-in-out,
         box-shadow ${slideDuration}ms ease-in-out,
         -webkit-box-shadow ${slideDuration}ms ease-in-out;
 
     &.sticky {
-        -webkit-box-shadow: 0px 0px 16px 8px rgba(0, 0, 0, 0.25);
-        box-shadow: 0px 0px 16px 8px rgba(0, 0, 0, 0.25);
+        border-bottom: 1px solid ${color("border")};
+
+        box-shadow: 0px 0px 16px 8px rgba(0, 0, 0, 0.5);
+        -webkit-box-shadow: 0px 0px 16px 8px rgba(0, 0, 0, 0.5);
 
         transition:
+            border-color ${slideDuration}ms ease-in-out,
             box-shadow ${slideDuration}ms ease-in-out,
             -webkit-box-shadow ${slideDuration}ms ease-in-out;
     }
