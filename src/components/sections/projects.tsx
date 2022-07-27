@@ -27,7 +27,7 @@ const ProjectList = styled.ul`
     display: grid;
     gap: .5rem;
 
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 
     list-style: none;
 
@@ -37,12 +37,14 @@ const ProjectList = styled.ul`
 
 const Project = styled.div`
     background-color: ${props => (props.theme as ITheme).projectItem.colors.background};
+
     border: 1px solid ${props => (props.theme as ITheme).projectItem.colors.background};
     border-radius: ${props => (props.theme as ITheme).projectItem.borderRadius};
 
     cursor: pointer;
 
     display: grid;
+
     grid-template-rows: min-content 100fr min-content;
 
     font-size: 1rem;
@@ -85,7 +87,6 @@ const ProjectFooter = styled.footer`
 
 const ProjectDescription = styled.p`
     overflow: hidden;
-    text-overflow: ellipsis;
 `
 
 const Github = ({ repository }: { repository: string }) => {
