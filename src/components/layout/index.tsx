@@ -20,6 +20,8 @@ import GlobalStyle from "@/components/global-style"
 import NavigationBar from "./navigation-bar"
 import SocialBar from "./social-bar"
 
+import Footer from "./footer"
+
 interface ILayoutProps {
     children: React.ReactNode
     pageTitle?: string
@@ -63,6 +65,7 @@ const Layout = ({ children, pageTitle }: ILayoutProps) => {
             { children }
         </main>
         <SocialBar/>
+        <Footer/>
     </>
 }
 
