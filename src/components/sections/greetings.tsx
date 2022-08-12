@@ -13,12 +13,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 
 
-import Typewriter from "../typewriter"
+import Typewriter from "@/components/typewriter"
 
 import {
     type ITheme,
     verticalShake,
-} from "../../style"
+} from "@/style"
 
 const StyledLink = styled.a`
     background: none;

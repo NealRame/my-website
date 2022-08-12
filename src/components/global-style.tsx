@@ -8,7 +8,7 @@ import * as React from "react"
 import {
     type ITheme,
     mediaQueryMinWidth,
-} from "../style"
+} from "@/style"
 
 const GlobalStyle = () => {
     const { colors } = useTheme() as ITheme

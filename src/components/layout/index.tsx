@@ -6,7 +6,6 @@ import {
     useStaticQuery,
 } from "gatsby"
 
-import styled from "@emotion/styled"
 import {
     jsx,
 } from "@emotion/react"
@@ -16,15 +15,10 @@ import {
     Helmet,
 } from "react-helmet"
 
+import GlobalStyle from "@/components/global-style"
+
 import NavigationBar from "./navigation-bar"
 import SocialBar from "./social-bar"
-
-import {
-    type ITheme,
-    mediaQueryMinWidth,
-} from "../../style"
-
-import GlobalStyle from "../global-style"
 
 interface ILayoutProps {
     children: React.ReactNode

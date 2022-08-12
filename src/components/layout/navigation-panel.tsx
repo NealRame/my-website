@@ -18,7 +18,7 @@ import {
     glow,
     mediaQueryMinWidth,
     mediaQueryMaxWidth,
-} from "../../style"
+} from "@/style"
 
 const navigationPanelFadeDuration = (theme: ITheme) => {
     return theme.navigationPanel.fadeTransitionDuration

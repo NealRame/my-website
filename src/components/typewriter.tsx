@@ -12,7 +12,7 @@ import * as React from "react"
 import {
     type ITheme,
     glow,
-} from "../style"
+} from "@/style"
 
 const blink = keyframes`
     50% {

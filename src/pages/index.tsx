@@ -10,17 +10,17 @@ import {
     jsx,
 } from "@emotion/react"
 
-import Layout from "../components/layout"
+import Layout from "@/components/layout"
 import {
     About,
     Contact,
     Greetings,
     Projects,
-} from "../components/sections"
+} from "@/components/sections"
 
 import {
     mediaQueryMinWidth,
-} from "../style"
+} from "@/style"
 
 const Sections = styled.div`
     ${mediaQueryMinWidth("medium")} {

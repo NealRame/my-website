@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 import {
     type ITheme,
     mediaQueryMinWidth,
-} from "../style"
+} from "@/style"
 
 export const Section = styled.section`
     box-sizing: border-box;

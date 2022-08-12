@@ -7,7 +7,7 @@ import {
 import {
     Section,
     SectionHeader,
-} from "../section"
+} from "@/components/section"
 
 export const Contact = () => {
     return <Section id="contact" css={{ textAlign: "center" }}>

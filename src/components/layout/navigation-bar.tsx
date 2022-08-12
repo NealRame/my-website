@@ -28,7 +28,7 @@ import {
 import {
     type ITheme,
     mediaQueryMaxWidth,
-} from "../../style"
+} from "@/style"
 
 import NavigationPanel from "./navigation-panel"
 

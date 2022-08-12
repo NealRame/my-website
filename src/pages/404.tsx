@@ -11,11 +11,11 @@ import {
     faGhost,
 } from "@fortawesome/free-solid-svg-icons"
 
-import Layout from "../components/layout"
+import Layout from "@/components/layout"
 
 import {
     type ITheme,
-} from "../style"
+} from "@/style"
 
 const Error404 = styled.div`
     color: ${props => (props.theme as ITheme).error404.colors.foreground};

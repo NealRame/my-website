@@ -10,11 +10,11 @@ import {
 import {
     Section,
     SectionHeader,
-} from "../section"
+} from "@/components/section"
 
 import {
     type ITheme,
-} from "../../style"
+} from "@/style"
 
 const StyledList = styled.ul`
     display: flex;

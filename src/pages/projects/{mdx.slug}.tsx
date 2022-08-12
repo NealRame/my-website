@@ -7,10 +7,10 @@ import {
 
 import * as React from "react"
 
-import Layout from "../../components/layout"
+import Layout from "@/components/layout"
 import {
     Section,
-} from "../../components/section"
+} from "@/components/section"
 
 interface IContentQueryData {
     data: {

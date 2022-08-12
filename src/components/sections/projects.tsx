@@ -17,11 +17,11 @@ import {
 import {
     Section,
     SectionHeader,
-} from "../section"
+} from "@/components/section"
 
 import {
     ITheme,
-} from "../../style"
+} from "@/style"
 
 const ProjectList = styled.ul`
     display: grid;

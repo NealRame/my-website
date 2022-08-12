@@ -21,7 +21,7 @@ import {
     type ITheme,
     horizontalShake,
     mediaQueryMinWidth,
-} from "../../style"
+} from "@/style"
 
 const Aside = styled.aside`
     padding: .5rem 0 .5rem;

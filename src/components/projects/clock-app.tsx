@@ -8,7 +8,7 @@ import Clock from "@nealrame/react-clock"
 
 import {
     type ITheme,
-} from "../../style"
+} from "@/style"
 
 function ClockApp() {
     const [date, setDate] = React.useState(new Date())
