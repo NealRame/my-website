@@ -7,19 +7,7 @@ import {
 } from "@emotion/react"
 
 import {
-    FontAwesomeIcon,
-} from "@fortawesome/react-fontawesome"
-
-import {
-    faCodepen,
-    faGithubAlt,
-    faInstagram,
-    faTwitter,
-} from "@fortawesome/free-brands-svg-icons"
-
-import {
     type ITheme,
-    horizontalShake,
     mediaQueryMinWidth,
 } from "@/style"
 
@@ -58,9 +46,7 @@ const Aside = styled.aside`
 `
 
 const SocialBar = () => {
-    return <Aside>
-        <SocialLinks/>
-    </Aside>
+    return <Aside><SocialLinks/></Aside>
 }
 
 export default SocialBar
