@@ -17,9 +17,9 @@ import {
 
 import GlobalStyle from "@/components/global-style"
 
-import NavigationBar from "./navigation-bar"
 import SocialBar from "./social-bar"
 
+import Header from "./header"
 import Footer from "./footer"
 
 interface ILayoutProps {
@@ -39,11 +39,11 @@ const Layout = ({ children, pageTitle }: ILayoutProps) => {
     `)
 
     const mainEl = React.useRef<HTMLDivElement>(null)
-    const [stickyNavigationBar, setStickyNavigationBar] = React.useState(false)
+    const [stickedHeader, setStickedHeader] = React.useState(false)
 
     const onScroll = (ev: Event) => {
         const { y: yOffset } = mainEl.current?.getBoundingClientRect() ?? { y: 0 }
-        setStickyNavigationBar(yOffset < 0)
+        setStickedHeader(yOffset < 0)
     }
 
     React.useEffect(() => {
@@ -58,9 +58,7 @@ const Layout = ({ children, pageTitle }: ILayoutProps) => {
                 { [siteTitle, pageTitle].filter(Boolean).join(" - ") }
             </title>
         </Helmet>
-        <header>
-            <NavigationBar siteTitle={ siteTitle } sticky={ stickyNavigationBar }/>
-        </header>
+        <Header siteTitle={ siteTitle } sticked={ stickedHeader }/>
         <main ref={ mainEl }>
             { children }
         </main>
