@@ -59,7 +59,7 @@ export const About = () => {
             I am currently employed by the company <i>Arobas Music</i> where I
             participate in the development of the <a href="https://www.guitar-pro.com/">Guitar Pro</a> application.
         </p><p>
-            Here are a few technologies I have worked with:
+            Here are some technologies I am familiar with:
         </p>
         <div css={{
             display: "flex",
