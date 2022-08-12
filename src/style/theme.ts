@@ -92,6 +92,21 @@ export interface ITypewriterTheme {
     }
 }
 
+export interface IClockTheme {
+    colors: {
+        background: string
+        border: string
+
+        hourHand: string
+        hourMarker: string
+
+        minuteHand: string
+        minuteMarker: string
+
+        secondHand: string
+    }
+}
+
 export interface ITheme extends Theme {
     breakpoints: {
         [key in IMediaQueryBreakpoint]: number
@@ -106,6 +121,7 @@ export interface ITheme extends Theme {
     projectItem: IWorkSectionTheme
     error404: IError404Theme
     typewriter: ITypewriterTheme
+    clock: IClockTheme
 }
 
 export const color1 = Color("#0e0f10").hex()
@@ -187,4 +203,18 @@ export const theme: ITheme = {
             foreground: Color(color4).lighten(0.05).hex(),
         },
     },
+    clock: {
+        colors: {
+            background: color1,
+            border: color3,
+
+            hourHand: color4,
+            hourMarker: color4,
+
+            minuteHand: color4,
+            minuteMarker: color4,
+
+            secondHand: color5,
+        },
+    }
 }
