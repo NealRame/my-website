@@ -50,9 +50,10 @@ const Footer = () => {
             <SocialLinks/>
         </StyledSocialLinks>
         <StyledCredit>
-            <a href="https://github.com/NealRame/my-website">
-                Designed & built by Neal.Rame.
-            </a>
+            <a
+                href="https://github.com/NealRame/my-website"
+                target="_blank"
+            >Designed & built by Neal.Rame.</a>
         </StyledCredit>
     </StyledFooter>
 }
