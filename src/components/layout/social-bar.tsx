@@ -23,10 +23,16 @@ import {
     mediaQueryMinWidth,
 } from "@/style"
 
+import SocialLinks from "./social-links"
+
 const Aside = styled.aside`
+    display: none;
+
     padding: .5rem 0 .5rem;
 
     ${mediaQueryMinWidth("medium")} {
+        display: block;
+
         position: fixed;
         bottom: 0;
         left: 0;
@@ -36,25 +42,8 @@ const Aside = styled.aside`
 
         width: ${props => (props.theme as ITheme).socialBar.width};
     }
-`
 
-const List = styled.ul`
-    display: flex;
-
-    justify-content: center;
-
-    list-style: none;
-
-    padding: 0;
-    margin: 0;
-
-    gap: ${props => (props.theme as ITheme).socialBar.gap};
-
-    li:hover {
-        animation: ${horizontalShake(2)} 400ms ease 0s 1 normal forwards;
-    }
-
-    ${mediaQueryMinWidth("medium")} {
+    & > ul {
         align-items: center;
         flex-direction: column;
 
@@ -70,29 +59,7 @@ const List = styled.ul`
 
 const SocialBar = () => {
     return <Aside>
-        <List>
-            <li>
-                <a
-                    href="https://github.com/NealRame"
-                    target="_blank"
-                ><FontAwesomeIcon fixedWidth icon={ faGithubAlt }/></a>
-            </li><li>
-                <a
-                    href="https://codepen.io/NealRame"
-                    target="_blank"
-                ><FontAwesomeIcon fixedWidth icon={ faCodepen }/></a>
-            </li><li>
-                <a
-                    href="https://www.instagram.com/nealrame/"
-                    target="_blank"
-                ><FontAwesomeIcon fixedWidth icon={ faInstagram }/></a>
-            </li><li>
-                <a
-                    href="https://twitter.com/NealRame"
-                    target="_blank"
-                ><FontAwesomeIcon fixedWidth icon={ faTwitter }/></a>
-            </li>
-        </List>
+        <SocialLinks/>
     </Aside>
 }
 
