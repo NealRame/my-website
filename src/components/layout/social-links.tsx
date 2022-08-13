@@ -20,49 +20,99 @@ import {
 import {
     type ITheme,
     horizontalShake,
+    mediaQueryMaxWidth,
+    mediaQueryMinWidth,
 } from "@/style"
 
-const List = styled.ul`
-    display: flex;
+const StyleAside = styled.aside`
+    padding: 1rem 1rem 0;
 
-    justify-content: center;
+    ${mediaQueryMinWidth("medium")} {
+        padding: .5rem 0 .5rem;
 
-    list-style: none;
+        display: block;
 
-    padding: 0;
-    margin: 0;
+        position: fixed;
+        bottom: 0;
+        left: 0;
 
-    gap: ${props => (props.theme as ITheme).socialBar.gap};
+        padding: 0;
+        margin: 0;
 
-    li:hover {
-        animation: ${horizontalShake(2)} 400ms ease 0s 1 normal forwards;
+        width: ${props => (props.theme as ITheme).socialBar.width};
+    }
+
+    & > ul {
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+        gap: ${props => (props.theme as ITheme).socialBar.gap};
+
+        list-style: none;
+
+        padding: 0;
+        margin: 0;
+
+        li:hover {
+            animation: ${horizontalShake(2)} 400ms ease 0s 1 normal forwards;
+        }
+
+        ${mediaQueryMaxWidth("medium")} {
+            &::after,
+            &::before {
+                align-self: center;
+        
+                border-top: 1px solid ${props => (props.theme as ITheme).socialBar.colors.border};
+        
+                content: "";
+        
+                height: 1px;
+                width: 100%;
+            }
+        }
+
+        ${mediaQueryMinWidth("medium")} {
+            flex-direction: column;
+
+            &::after {
+                border-left: 1px solid ${props => (props.theme as ITheme).socialBar.colors.border};
+                content: "";
+                width: 1px;
+                height: 128px;
+                margin: 0 auto;
+            }
+        }
     }
 `
 
 const SocialLinks = () => {
-    return <List>
-        <li>
-            <a
-                href="https://github.com/NealRame"
-                target="_blank"
-            ><FontAwesomeIcon fixedWidth icon={ faGithubAlt }/></a>
-        </li><li>
-            <a
-                href="https://codepen.io/NealRame"
-                target="_blank"
-            ><FontAwesomeIcon fixedWidth icon={ faCodepen }/></a>
-        </li><li>
-            <a
-                href="https://www.instagram.com/nealrame/"
-                target="_blank"
-            ><FontAwesomeIcon fixedWidth icon={ faInstagram }/></a>
-        </li><li>
-            <a
-                href="https://twitter.com/NealRame"
-                target="_blank"
-            ><FontAwesomeIcon fixedWidth icon={ faTwitter }/></a>
-        </li>
-    </List>
+    return <StyleAside>
+        <ul>
+            <li>
+                <a
+                    href="https://github.com/NealRame"
+                    target="_blank"
+                ><FontAwesomeIcon fixedWidth icon={ faGithubAlt }/></a>
+            </li><li>
+                <a
+                    href="https://codepen.io/NealRame"
+                    target="_blank"
+                ><FontAwesomeIcon fixedWidth icon={ faCodepen }/></a>
+            </li><li>
+                <a
+                    href="https://www.instagram.com/nealrame/"
+                    target="_blank"
+                ><FontAwesomeIcon fixedWidth icon={ faInstagram }/></a>
+            </li><li>
+                <a
+                    href="https://twitter.com/NealRame"
+                    target="_blank"
+                ><FontAwesomeIcon fixedWidth icon={ faTwitter }/></a>
+            </li>
+        </ul>
+    </StyleAside>
 }
 
 export default SocialLinks

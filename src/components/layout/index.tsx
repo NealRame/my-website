@@ -17,10 +17,9 @@ import {
 
 import GlobalStyle from "@/components/global-style"
 
-import SocialBar from "./social-bar"
-
 import Header from "./header"
 import Footer from "./footer"
+import SocialLinks from "./social-links"
 
 interface ILayoutProps {
     children: React.ReactNode
@@ -62,7 +61,7 @@ const Layout = ({ children, pageTitle }: ILayoutProps) => {
         <main ref={ mainEl }>
             { children }
         </main>
-        <SocialBar/>
+        <SocialLinks/>
         <Footer/>
     </>
 }
