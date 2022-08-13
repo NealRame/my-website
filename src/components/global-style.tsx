@@ -40,7 +40,7 @@ const GlobalStyle = () => {
             color: colors.header,
 
             fontFamily: "lores-9-wide, sans-serif",
-            fontWeight: 600,
+            fontWeight: 700,
         },
         h1: {
             fontSize: "2rem",
