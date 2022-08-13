@@ -52,6 +52,11 @@ const GlobalStyle = () => {
             color: colors.link,
             textDecoration: "none",
         },
+        code: {
+            fontFamily: "cartograph-cf",
+            fontSize: "smaller",
+            fontWeight: 300,
+        }
     }}/>
 }
 
