@@ -37,8 +37,6 @@ export const SectionHeader = styled.h1`
     }
 
     &::after {
-        align-self: center;
-
         border-bottom: 1px solid ${(props => (props.theme as ITheme).contentSection.colors.border)};
 
         content: "";
