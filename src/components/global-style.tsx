@@ -44,9 +44,11 @@ const GlobalStyle = () => {
         },
         h1: {
             fontSize: "2rem",
+            margin: "3rem 0",
         },
         h2: {
             fontSize: "1.25rem",
+            margin: "2rem 0",
         },
         a: {
             color: colors.link,
