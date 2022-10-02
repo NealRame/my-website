@@ -4,9 +4,9 @@ interface IProjectEntryProps {
         description: string
         github: string
         title: string
+        slug: string
     }
     id: string
-    slug: string
 }
 
 interface IAllProjectQueryProps {

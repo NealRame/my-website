@@ -1,9 +1,6 @@
 import {
     graphql,
 } from "gatsby"
-import {
-    MDXRenderer,
-} from "gatsby-plugin-mdx"
 
 import * as React from "react"
 
@@ -21,13 +18,14 @@ interface IContentQueryData {
             }
             body: string
         }
-    }
+    },
+    children: React.ReactNode
 }
 
-const Content = ({ data }: IContentQueryData) => {
+const Content = ({ data, children }: IContentQueryData) => {
     return <Layout pageTitle={ data.mdx.frontmatter.title }>
         <Section>
-            <MDXRenderer>{ data.mdx.body }</MDXRenderer>
+            { children }
         </Section>
     </Layout>
 }

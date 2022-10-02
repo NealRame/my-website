@@ -100,8 +100,8 @@ export const Projects = ({ data }: IAllProjectQueryProps) => {
     return <Section id="projects">
         <SectionHeader>Projects</SectionHeader>
         <ProjectList>
-            { data.allMdx.nodes.map(({ id, slug, frontmatter}) => {
-                const url = `/projects/${slug}`
+            { data.allMdx.nodes.map(({ id, frontmatter}) => {
+                const url = `/projects/${frontmatter.slug}`
                 const { date, description, github, title } = frontmatter
 
                 return <Project key={ id } onClick={ clickHandler(url) }>

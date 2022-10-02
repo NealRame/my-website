@@ -50,9 +50,9 @@ export const query = graphql`
                     description
                     github
                     title
+                    slug
                 }
                 id
-                slug
             }
         }
     }
