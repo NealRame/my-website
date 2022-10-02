@@ -11,9 +11,6 @@ import {
 } from "@emotion/react"
 
 import * as React from "react"
-import {
-    Helmet,
-} from "react-helmet"
 
 import GlobalStyle from "@/components/global-style"
 
@@ -52,11 +49,6 @@ const Layout = ({ children, pageTitle }: ILayoutProps) => {
 
     return <>
         <GlobalStyle/>
-        <Helmet>
-            <title>
-                { [siteTitle, pageTitle].filter(Boolean).join(" - ") }
-            </title>
-        </Helmet>
         <Header siteTitle={ siteTitle } sticked={ stickedHeader }/>
         <main ref={ mainEl }>
             { children }

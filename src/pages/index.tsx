@@ -3,6 +3,7 @@
 
 import {
     graphql,
+    type PageProps,
 } from "gatsby"
 
 import styled from "@emotion/styled"
@@ -30,13 +31,13 @@ const Sections = styled.div`
     }
 `
 
-const IndexPage = ({ data }: IAllProjectQueryProps) => {
+const IndexPage = ({ data }: PageProps<IHomePageDataProps>) => {
     return <Layout>
         <Greetings anchor="/#about"/>
         <Sections css={{ minHeight: "100vh" }}>
             <About/>
             <Contact/>
-            <Projects data={ data }/>
+            <Projects { ...data }/>
         </Sections>
     </Layout>
 }
@@ -55,7 +56,14 @@ export const query = graphql`
                 id
             }
         }
+        site {
+            siteMetadata {
+                title
+            }
+        }
     }
 `
+
+export { Head } from "@/components/head"
 
 export default IndexPage

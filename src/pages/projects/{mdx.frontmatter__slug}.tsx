@@ -1,5 +1,6 @@
 import {
     graphql,
+    type PageProps,
 } from "gatsby"
 
 import * as React from "react"
@@ -9,21 +10,8 @@ import {
     Section,
 } from "@/components/section"
 
-interface IContentQueryData {
-    data: {
-        mdx: {
-            frontmatter: {
-                date: string
-                title: string
-            }
-            body: string
-        }
-    },
-    children: React.ReactNode
-}
-
-const Content = ({ data, children }: IContentQueryData) => {
-    return <Layout pageTitle={ data.mdx.frontmatter.title }>
+const Content = ({ children }: PageProps) => {
+    return <Layout>
         <Section>
             { children }
         </Section>
@@ -31,15 +19,15 @@ const Content = ({ data, children }: IContentQueryData) => {
 }
 
 export const query = graphql`
-    query ($id: String) {
-        mdx(id: { eq: $id }) {
-            frontmatter {
-                date(formatString: "D MMMM, YYYY")
+    query {
+        site {
+            siteMetadata {
                 title
             }
-            body
         }
     }
 `
+
+export { Head } from "@/components/head"
 
 export default Content

@@ -1,5 +1,6 @@
 import {
     Link,
+    type PageProps,
 } from "gatsby"
 
 import styled from "@emotion/styled"
@@ -95,12 +96,12 @@ const Github = ({ repository }: { repository: string }) => {
     </a>
 }
 
-export const Projects = ({ data }: IAllProjectQueryProps) => {
+export const Projects = ({ allMdx }: IHomePageDataProps) => {
     const clickHandler = (url: string) => () => window.location.href = url
     return <Section id="projects">
         <SectionHeader>Projects</SectionHeader>
         <ProjectList>
-            { data.allMdx.nodes.map(({ id, frontmatter}) => {
+            { allMdx.nodes.map(({ id, frontmatter}) => {
                 const url = `/projects/${frontmatter.slug}`
                 const { date, description, github, title } = frontmatter
 
@@ -118,6 +119,5 @@ export const Projects = ({ data }: IAllProjectQueryProps) => {
                 </Project>
             }) }
         </ProjectList>
-
     </Section>
 }

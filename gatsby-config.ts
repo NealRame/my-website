@@ -11,7 +11,6 @@ const config: GatsbyConfig = {
     graphqlTypegen: true,
     plugins: [
         "gatsby-plugin-emotion",
-        "gatsby-plugin-react-helmet",
         "gatsby-plugin-mdx",
         {
             resolve: 'gatsby-plugin-manifest',
@@ -28,7 +27,7 @@ const config: GatsbyConfig = {
         }, {
             resolve: "gatsby-source-filesystem",
             options: {
-                name: "work",
+                name: "projects",
                 path: `${__dirname}/src/projects`,
             }
         },

@@ -1,18 +1,29 @@
-interface IProjectEntryProps {
-    frontmatter: {
-        date: string
-        description: string
-        github: string
-        title: string
-        slug: string
+interface IPageDataProps {
+    site: {
+        siteMetadata: {
+            title: string
+        }
     }
+}
+
+interface IPageFrontmatter {
+    date: string
+    description: string
+    title: string
+    slug: string
+}
+
+interface IPageContextProps<TFrontmatter = IPageFrontmatter> {
+    frontmatter: TFrontmatter
     id: string
 }
 
-interface IAllProjectQueryProps {
-    data: {
-        allMdx: {
-            nodes: Array<IProjectEntryProps>
-        }
+type IProjectPageDataProps = IPageContextProps<IPageFrontmatter & {
+    github: string
+}>
+
+interface IHomePageDataProps extends IPageDataProps {
+    allMdx: {
+        nodes: Array<IProjectPageDataProps>
     }
 }

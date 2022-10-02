@@ -11,3 +11,8 @@ exports.onCreateWebpackConfig = ({ actions }: NodePluginArgs) => {
         },
     })
 }
+
+exports.createPages = async ({ actions, graphql }: NodePluginArgs) => {
+    const { createPage } = actions
+    console.log("createPages", createPage)
+}
