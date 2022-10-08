@@ -27,6 +27,15 @@ export type IColorKey = "background"
     | "link"
     | "header"
 
+export interface IInputRangeTheme {
+    colors: {
+        background: string
+        border: string
+        track: string
+        thumb: string
+    }
+}
+
 export interface INagivationBarTheme {
     colors: {
         background: string
@@ -114,6 +123,7 @@ export interface ITheme extends Theme {
     colors: {
         [key in IColorKey]: string
     }
+    inputRange: IInputRangeTheme
     navigationBar: INagivationBarTheme
     navigationPanel: INagivationPanelTheme
     socialBar: ISocialBarTheme
@@ -144,6 +154,14 @@ export const theme: ITheme = {
         foreground: color3,
         header: color2,
         link: color4,
+    },
+    inputRange: {
+        colors: {
+            background: color1,
+            border: color3,
+            thumb: color3,
+            track: color4,
+        }
     },
     navigationBar: {
         colors: {
