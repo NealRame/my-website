@@ -1,0 +1,35 @@
+---
+title: "L-Systems"
+date: "2022-10-03"
+description: "L-Systems."
+github: "NealRame/react-l-system"
+slug: "lsystems"
+---
+import LSystem, {
+    KockCurve,
+    KockSnowflake,
+    SierpinskiTriangle,
+    HilbertCurve,
+} from "@/components/projects/l-system-app"
+
+# L-Systems
+
+Lindenmayer systems or L-systems for short is a string-rewitting system
+introduced by _[Aristid Lindenmayer](https://en.wikipedia.org/wiki/Aristid_Lindenmayer)_
+in 1968.
+
+L-Systems were initially used to model the growth of plants, but they can be
+also be used to generate fractals patterns.
+
+## Hilbert Curve
+<LSystem { ...HilbertCurve } stepsMin="1"/>
+
+## Kock Curve
+<LSystem { ...KockCurve } stepsMin="1" stepsInit="3"/>
+
+## Koch Snowflake
+<LSystem { ...KockSnowflake }/>
+
+## Sierpinski Triangle
+<LSystem { ... SierpinskiTriangle } stepsMin="1"/>
+

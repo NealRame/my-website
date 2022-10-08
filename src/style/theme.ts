@@ -116,6 +116,13 @@ export interface IClockTheme {
     }
 }
 
+export interface ILSystemTheme {
+    colors: {
+        background: string
+        stroke: string
+    }
+}
+
 export interface ITheme extends Theme {
     breakpoints: {
         [key in IMediaQueryBreakpoint]: number
@@ -132,6 +139,7 @@ export interface ITheme extends Theme {
     error404: IError404Theme
     typewriter: ITypewriterTheme
     clock: IClockTheme
+    lsystems: ILSystemTheme
 }
 
 export const color1 = Color("#0e0f10").hex()
@@ -234,5 +242,11 @@ export const theme: ITheme = {
 
             secondHand: color5,
         },
+    },
+    lsystems: {
+        colors: {
+            background: color1,
+            stroke: color3,
+        }
     }
 }
