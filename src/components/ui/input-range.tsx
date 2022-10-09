@@ -20,11 +20,13 @@ const InputRange = styled.input`
     border: 1px solid ${props => (props.theme as ITheme).inputRange.colors.border};
     border-radius: 6px;
 
+    box-sizing: border-box;
+
     margin: 0;
-    padding: 1px;
-    
+    padding: 2px;
+
     width: 100%;
-    height: 6px;
+    height: 12px;
 
     -webkit-appearance: none;
 
