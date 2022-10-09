@@ -21,15 +21,18 @@ in 1968.
 L-Systems were initially used to model the growth of plants, but they can be
 also be used to generate fractals patterns.
 
+I made a simple library based on [React](https://reactjs.org) to play with
+<nobr>L-systems</nobr>. You can find it on [Github](https://github.com/NealRame/react-l-system).
+
 ## Hilbert Curve
 <LSystem { ...HilbertCurve } stepsMin="1"/>
 
-## Kock Curve
-<LSystem { ...KockCurve } stepsMin="1" stepsInit="3"/>
+## Koch Curve
+<LSystem { ...KockCurve } stepsMin="1" stepsInit="3" stepsMax="5"/>
 
 ## Koch Snowflake
-<LSystem { ...KockSnowflake }/>
+<LSystem { ...KockSnowflake } stepsMax="5"/>
 
 ## Sierpinski Triangle
-<LSystem { ... SierpinskiTriangle } stepsMin="1"/>
+<LSystem { ... SierpinskiTriangle }/>
 
