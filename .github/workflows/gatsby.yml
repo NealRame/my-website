@@ -77,6 +77,7 @@ jobs:
       - name: Build with Gatsby
         env:
           PREFIX_PATHS: 'true'
+          TYPEKIT_ID: ${{secrets.TYPEKIT_ID}}
         run: ${{ steps.detect-package-manager.outputs.manager }} run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
