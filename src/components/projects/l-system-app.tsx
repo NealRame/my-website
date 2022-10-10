@@ -136,7 +136,9 @@ const LSystemDescriptionWrapper = styled.div`
     font-size: 0.75rem;
 
     & > label {
-        border-bottom: 1px solid ${props => (props.theme as ITheme).colors.border};
+        background-color: ${props => (props.theme as ITheme).colors.foreground};
+
+        color: ${props => (props.theme as ITheme).colors.background};
 
         font-weight: bold;
 
@@ -216,11 +218,11 @@ const LSystemWrapper = styled.div`
 `
 
 const LSystem = ({
-        axiom,
-        productionRules,
-        renderingRules,
-        ...config
-    }: LSystemProps) => {
+    axiom,
+    productionRules,
+    renderingRules,
+    ...config
+}: LSystemProps) => {
     const lsystem = { axiom, productionRules, renderingRules }
     return <LSystemWrapper>
         <Tabs>
