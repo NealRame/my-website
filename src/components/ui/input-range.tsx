@@ -22,6 +22,8 @@ const InputRange = styled.input`
 
     box-sizing: border-box;
 
+    cursor: pointer;
+
     margin: 0;
     padding: 2px;
 
