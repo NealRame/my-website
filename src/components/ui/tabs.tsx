@@ -38,11 +38,11 @@ const TabsWrapper = styled.div`
             margin: 0.25rem;
 
             &.active {
-                color: ${ props => (props.theme as ITheme).colors.header };
+                color: ${ props => (props.theme as ITheme).colors.link };
             }
 
             &:hover {
-                color: ${ props => (props.theme as ITheme).colors.link };
+                color: ${ props => (props.theme as ITheme).colors.header };
             }
         }
     }
