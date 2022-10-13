@@ -38,9 +38,11 @@ export interface IInputRangeTheme {
 
 export interface INagivationBarTheme {
     colors: {
-        background: string
+        background1: string
+        background2: string
         foreground: string
-        border: string
+        border1: string
+        border2: string
         focus: string
         header: string
         hover: string
@@ -62,6 +64,7 @@ export interface ISocialBarTheme {
     colors: {
         border: string
     }
+    bottom: number | string
     gap: number | string
     width: number | string
 }
@@ -76,6 +79,15 @@ export interface IContentSectionTheme {
     }
     headerMargin: number | string
     padding: number | string
+}
+
+export interface IFooterTheme {
+    colors: {
+        background: string
+        foreground: string
+        border: string
+    }
+    height: number | string
 }
 
 export interface IWorkSectionTheme {
@@ -135,6 +147,7 @@ export interface ITheme extends Theme {
     navigationPanel: INagivationPanelTheme
     socialBar: ISocialBarTheme
     contentSection: IContentSectionTheme
+    footer: IFooterTheme
     projectItem: IWorkSectionTheme
     error404: IError404Theme
     typewriter: ITypewriterTheme
@@ -173,8 +186,10 @@ export const theme: ITheme = {
     },
     navigationBar: {
         colors: {
-            background: color1,
-            border: Color(color1).lighten(0.75).hex(),
+            background1: color1,
+            background2: Color(color4).alpha(0.05).rgb().string(),
+            border1: Color(color1).lighten(0.75).hex(),
+            border2: color4,
             foreground: color3,
             header: color5,
             hover: color4,
@@ -209,6 +224,14 @@ export const theme: ITheme = {
         headerMargin: "0 0 2rem",
         padding: "5rem 3rem 0",
     },
+    footer: {
+        colors: {
+            background: Color(color4).alpha(0.05).rgb().string(),
+            foreground: color4,
+            border: color4,
+        },
+        height: "2rem"
+    },
     projectItem: {
         colors: {
             background: Color(color1).mix(Color(color3), 0.1).hex(),
@@ -223,6 +246,7 @@ export const theme: ITheme = {
         },
         gap: "1rem",
         width: "3rem",
+        bottom: "3.5rem"
     },
     typewriter: {
         colors: {

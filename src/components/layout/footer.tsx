@@ -6,9 +6,19 @@ import {
     jsx,
 } from "@emotion/react"
 
+import {
+    type ITheme,
+    mediaQueryMaxWidth,
+    mediaQueryMinWidth,
+} from "@/style"
+
 const StyledFooter = styled.footer`
-    font-size: smaller;
-    padding-bottom: 1rem;
+    ${mediaQueryMinWidth("medium")} {
+        background-color: ${props => (props.theme as ITheme).footer.colors.background};
+        border-top: 1px solid ${props => (props.theme as ITheme).footer.colors.border};
+        height: ${props => (props.theme as ITheme).footer.height};
+    }
+    font-size: 0.75rem;
 `
 
 const StyledCredit = styled.div`

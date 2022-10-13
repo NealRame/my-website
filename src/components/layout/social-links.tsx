@@ -33,7 +33,7 @@ const StyleAside = styled.aside`
         display: block;
 
         position: fixed;
-        bottom: 0;
+        bottom: ${props => (props.theme as ITheme).socialBar.bottom};
         left: 0;
 
         padding: 0;

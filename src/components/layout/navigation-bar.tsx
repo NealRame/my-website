@@ -128,8 +128,9 @@ const Title = styled.h1`
 `
 
 const NavigationBarWrapper = styled.div`
-    border-bottom: 1px solid ${color("background")};
-    background-color: ${color("background")};
+    background-color: ${color("background1")};
+
+    border-bottom: 1px solid ${color("background1")};
 
     display: grid;
     grid-template-columns: min-content 100fr;
@@ -151,17 +152,23 @@ const NavigationBarWrapper = styled.div`
     z-index: 1;
 
     transition:
+        background-color ${slideDuration}ms ease-in-out,
         border-color ${slideDuration}ms ease-in-out,
         box-shadow ${slideDuration}ms ease-in-out,
         -webkit-box-shadow ${slideDuration}ms ease-in-out;
 
     &.sticky {
-        border-bottom: 1px solid ${color("border")};
+        background-color: ${color("background2")};
+
+        backdrop-filter: blur(24px);
+
+        border-bottom: 1px solid ${color("border2")};
 
         box-shadow: 0px 0px 16px 8px rgba(0, 0, 0, 0.5);
         -webkit-box-shadow: 0px 0px 16px 8px rgba(0, 0, 0, 0.5);
 
         transition:
+            background-color ${slideDuration}ms ease-in-out,
             border-color ${slideDuration}ms ease-in-out,
             box-shadow ${slideDuration}ms ease-in-out,
             -webkit-box-shadow ${slideDuration}ms ease-in-out;
