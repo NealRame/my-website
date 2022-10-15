@@ -47,6 +47,19 @@ const InputRange = styled.input`
         height: 6px;
     }
 
+    &::-moz-range-thumb {
+        background: ${props => (props.theme as ITheme).inputRange.colors.thumb};
+
+        border-radius: 3px;
+
+        box-shadow: none;
+
+        margin: 0;
+
+        width: 16px;
+        height: 6px;
+    }
+
     &::-webkit-slider-runnable-track {
         -webkit-appearance: none;
 
@@ -59,6 +72,20 @@ const InputRange = styled.input`
         background-size: ${updateInputRangeTrack} 100%;
 
         border-radius: 3px;
+    }
+
+    &::-moz-range-track {
+        background: transparent;
+        background-image: linear-gradient(
+            ${props => (props.theme as ITheme).inputRange.colors.track},
+            ${props => (props.theme as ITheme).inputRange.colors.track}
+        );
+        background-repeat: no-repeat;
+        background-size: ${updateInputRangeTrack} 100%;
+
+        border-radius: 3px;
+
+        height: 6px;
     }
 `
 
