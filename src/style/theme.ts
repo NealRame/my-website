@@ -38,11 +38,9 @@ export interface IInputRangeTheme {
 
 export interface INagivationBarTheme {
     colors: {
-        background1: string
-        background2: string
+        background: string
         foreground: string
-        border1: string
-        border2: string
+        border: string
         focus: string
         header: string
         hover: string
@@ -186,10 +184,8 @@ export const theme: ITheme = {
     },
     navigationBar: {
         colors: {
-            background1: color1,
-            background2: Color(color4).alpha(0.05).rgb().string(),
-            border1: Color(color1).lighten(0.75).hex(),
-            border2: color4,
+            background: color1,
+            border: color4,
             foreground: color3,
             header: color5,
             hover: color4,

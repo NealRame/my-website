@@ -28,6 +28,7 @@ import {
 import {
     type ITheme,
     mediaQueryMaxWidth,
+    mediaQueryMinWidth,
 } from "@/style"
 
 import NavigationPanel from "./navigation-panel"
@@ -128,9 +129,7 @@ const Title = styled.h1`
 `
 
 const NavigationBarWrapper = styled.div`
-    background-color: ${color("background1")};
-
-    border-bottom: 1px solid ${color("background1")};
+    background-color: ${color("background")};
 
     display: grid;
     grid-template-columns: min-content 100fr;
@@ -152,26 +151,49 @@ const NavigationBarWrapper = styled.div`
     z-index: 1;
 
     transition:
-        background-color ${slideDuration}ms ease-in-out,
-        border-color ${slideDuration}ms ease-in-out,
         box-shadow ${slideDuration}ms ease-in-out,
         -webkit-box-shadow ${slideDuration}ms ease-in-out;
 
     &.sticky {
-        background-color: ${color("background2")};
-
-        backdrop-filter: blur(24px);
-
-        border-bottom: 1px solid ${color("border2")};
-
         box-shadow: 0px 0px 16px 8px rgba(0, 0, 0, 0.5);
         -webkit-box-shadow: 0px 0px 16px 8px rgba(0, 0, 0, 0.5);
 
         transition:
-            background-color ${slideDuration}ms ease-in-out,
             border-color ${slideDuration}ms ease-in-out,
             box-shadow ${slideDuration}ms ease-in-out,
             -webkit-box-shadow ${slideDuration}ms ease-in-out;
+
+        ${mediaQueryMinWidth("medium")} {
+            &::after {
+                border-bottom: 1px solid ${color("border")};
+
+                left: 0%;
+                right: 0%;
+
+                transition:
+                    left ${slideDuration}ms ease-in-out,
+                    right ${slideDuration}ms ease-in-out;
+            }
+        }
+    }
+
+    ${mediaQueryMinWidth("medium")} {
+        &::after {
+            border-bottom: 1px solid ${color("border")};
+
+            content: "";
+
+            display: block;
+
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            right: 50%;
+
+            transition:
+                left ${slideDuration}ms ease-in-out,
+                right ${slideDuration}ms ease-in-out;
+        }
     }
 `
 
