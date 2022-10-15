@@ -6,6 +6,7 @@ import {
     useStaticQuery,
 } from "gatsby"
 
+import styled from "@emotion/styled"
 import {
     jsx,
 } from "@emotion/react"
@@ -17,6 +18,14 @@ import GlobalStyle from "@/components/global-style"
 import Header from "./header"
 import Footer from "./footer"
 import SocialLinks from "./social-links"
+
+const PageWrapper = styled.div`
+    display: grid;
+
+    grid-template-rows: min-content 1fr min-content;
+
+    min-height: 100vh;
+`
 
 interface ILayoutProps {
     children: React.ReactNode
@@ -49,12 +58,14 @@ const Layout = ({ children, pageTitle }: ILayoutProps) => {
 
     return <>
         <GlobalStyle/>
-        <Header siteTitle={ siteTitle } sticked={ stickedHeader }/>
-        <main ref={ mainEl }>
-            { children }
-        </main>
-        <SocialLinks/>
-        <Footer/>
+        <PageWrapper>
+            <Header siteTitle={ siteTitle } sticked={ stickedHeader }/>
+            <main ref={ mainEl }>
+                { children }
+            </main>
+            <SocialLinks/>
+            <Footer/>
+        </PageWrapper>
     </>
 }
 
