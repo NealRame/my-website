@@ -8,7 +8,6 @@ import {
 
 import {
     type ITheme,
-    mediaQueryMaxWidth,
     mediaQueryMinWidth,
 } from "@/style"
 
