@@ -24,12 +24,12 @@
     "@nealrame/react-clock": "^1.0.1",
     "@nealrame/react-l-system": "^0.1.0",
     "color": "^4.2.3",
-    "gatsby": "^4.24.1",
-    "gatsby-plugin-emotion": "^7.24.0",
-    "gatsby-plugin-manifest": "^4.24.0",
-    "gatsby-plugin-mdx": "^4.3.0",
+    "gatsby": "^5.9.0",
+    "gatsby-plugin-emotion": "^8.9.0",
+    "gatsby-plugin-manifest": "^5.9.0",
+    "gatsby-plugin-mdx": "^5.9.0",
     "gatsby-plugin-web-font-loader": "^1.0.4",
-    "gatsby-source-filesystem": "^4.24.0",
+    "gatsby-source-filesystem": "^5.9.0",
     "ramda": "^0.28.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -42,6 +42,6 @@
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
     "@types/react-transition-group": "^4.4.5",
-    "typescript": "^4.8.4"
+    "typescript": "^5.0.4"
   }
 }
