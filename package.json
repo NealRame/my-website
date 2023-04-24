@@ -30,7 +30,7 @@
     "gatsby-plugin-mdx": "^5.9.0",
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-filesystem": "^5.9.0",
-    "ramda": "^0.28.0",
+    "ramda": "^0.29.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-transition-group": "^4.4.5"
@@ -38,7 +38,7 @@
   "devDependencies": {
     "@types/color": "^3.0.3",
     "@types/node": "^18.7.23",
-    "@types/ramda": "^0.28.15",
+    "@types/ramda": "^0.29.0",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
     "@types/react-transition-group": "^4.4.5",
