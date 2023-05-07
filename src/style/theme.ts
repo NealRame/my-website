@@ -36,6 +36,16 @@ export interface IInputRangeTheme {
     }
 }
 
+export interface IButtonTheme {
+    colors: {
+        normal: string
+        hover: string
+        disabled: string
+        active: string
+    }
+    fontSize: string
+}
+
 export interface INagivationBarTheme {
     colors: {
         background: string
@@ -133,6 +143,19 @@ export interface ILSystemTheme {
     }
 }
 
+export interface IGameOfLifeTheme {
+    colors: {
+        grid: string,
+        aliveCell: string,
+        deadCell: string,
+
+        buttonColor: string,
+        buttonHoveredColor: string,
+        buttonDisabledColor: string,
+    },
+    cellSize: number
+}
+
 export interface ITheme extends Theme {
     breakpoints: {
         [key in IMediaQueryBreakpoint]: number
@@ -141,6 +164,7 @@ export interface ITheme extends Theme {
         [key in IColorKey]: string
     }
     inputRange: IInputRangeTheme
+    buttons: IButtonTheme
     navigationBar: INagivationBarTheme
     navigationPanel: INagivationPanelTheme
     socialBar: ISocialBarTheme
@@ -151,6 +175,7 @@ export interface ITheme extends Theme {
     typewriter: ITypewriterTheme
     clock: IClockTheme
     lsystems: ILSystemTheme
+    gameOfLife: IGameOfLifeTheme
 }
 
 export const color1 = Color("#0e0f10").hex()
@@ -181,6 +206,15 @@ export const theme: ITheme = {
             thumb: color3,
             track: color4,
         }
+    },
+    buttons: {
+        colors: {
+            normal: color4,
+            hover: color5,
+            disabled: color2,
+            active: color5,
+        },
+        fontSize: ".6rem",
     },
     navigationBar: {
         colors: {
@@ -268,5 +302,16 @@ export const theme: ITheme = {
             background: color1,
             stroke: color3,
         }
+    },
+    gameOfLife: {
+        colors: {
+            grid: color4,
+            aliveCell: color4,
+            deadCell: "transparent",
+            buttonColor: color4,
+            buttonHoveredColor: color5,
+            buttonDisabledColor: color2,
+        },
+        cellSize: 10,
     }
 }
