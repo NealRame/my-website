@@ -69,6 +69,7 @@ const ControlBar = styled.div`
 const Canvas = styled.canvas`
     border: 1px solid ${props => (props.theme as ITheme).gameOfLife.colors.grid};
     display: block;
+    width: 100%;
 
     &.editable {
         cursor: pointer;
