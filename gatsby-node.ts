@@ -9,6 +9,9 @@ exports.onCreateWebpackConfig = ({ actions }: NodePluginArgs) => {
                 "@": path.resolve(__dirname, "src"),
             },
         },
+        experiments: {
+            asyncWebAssembly: true,
+        },
     })
 }
 

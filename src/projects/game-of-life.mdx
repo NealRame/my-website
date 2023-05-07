@@ -1,0 +1,242 @@
+---
+title: "Game of Life"
+date: "2023-04-24"
+description: "The Game of Life."
+github: "NealRame/wasm-game-of-life"
+slug: "game-of-life"
+---
+import {
+    FontAwesomeIcon,
+} from "@fortawesome/react-fontawesome"
+
+import {
+    faBorderNone,
+    faCopy,
+    faDice,
+    faPauseCircle,
+    faPlayCircle,
+    faRightLong,
+    faRotateLeft,
+    faSkull,
+    faStepForward,
+} from "@fortawesome/free-solid-svg-icons"
+
+import {
+    HFlexContainer,
+    VFlexContainer,
+} from "@/components/ui/flex"
+
+import {
+    GridContainer,
+} from "@/components/ui/grid"
+
+import GameOfLifeApp from "@/components/projects/game-of-life-app"
+
+# The Game of Life
+
+I wanted to learn how to use WASM with Rust so I followed the dedicated
+tutorial which takes the game of life as support.
+
+I quickly wanted to add some features such as pattern import/export that can be
+found in _[RLE](https://conwaylife.com/wiki/Run_Length_Encoded)_ or
+_[Life 1.06](https://conwaylife.com/wiki/Life_1.06)_ formats, etc.
+
+The code from the tutorial is available here:
+[NealRame/wasm-game-of-life](https://github.com/NealRame/wasm-game-of-life).
+
+## What is a cellular automaton?
+
+A cellular automaton is a theoretically infinite grid of cells that can take a
+finite number of states. Each cell of the grid evolves according to the state
+of its neighbors.
+
+## What is the game of life?
+
+The _Game of Life_ is a cellular automaton imagined by John Horton Conway in
+1970 and which is probably the best known of all cellular automata.
+
+In the _Game of Life_ each cell can be in two states: **alive** or **dead**.
+
+Each cell has 8 neighbors, which are the directly adjacent cells
+(see [Moore neighborhood](https://en.wikipedia.org/wiki/Moore_neighborhood) on Wikipedia).
+
+At each stage, the evolution of each cell is determined by the rules following:
+- a dead cell with exactly three living neighbors will become alive,
+- an alive cell with two or three living neighbors will stay alive,
+- an alive cell having strictly less than two or more than three living
+  neighbors will die.
+
+<HFlexContainer style={{
+    justifyContent: "space-between",
+    alignItems: "center",
+}}>
+    <GameOfLifeApp cellSize="20" src="data:text/life_rle;base64,eCA9IDUsIHkgPSA1LCBydWxlID0gQjMvUzIzCiQyYm8kYjNvJDJibyQh"></GameOfLifeApp>
+    <FontAwesomeIcon icon={ faRightLong } fixedWidth/>
+    <GameOfLifeApp cellSize="20" src="data:text/life_rle;base64,eCA9IDUsIHkgPSA1LCBydWxlID0gQjMvUzIzCiRiM28kYm9ibyRiM28kIQ=="></GameOfLifeApp>
+    <FontAwesomeIcon icon={ faRightLong } fixedWidth/>
+    <GameOfLifeApp cellSize="20" src="data:text/life_rle;base64,eCA9IDUsIHkgPSA1LCBydWxlID0gQjMvUzIzCjJibyRib2JvJG8zYm8kYm9ibyQyYm8h"></GameOfLifeApp>
+</HFlexContainer>
+
+Let see what happen with a random grid when we apply the rules of the game of
+life.
+
+<GameOfLifeApp width="64" height="32" random controls/>
+
+As the simulation runs, we quickly see patterns emerge, some are stable, some
+oscillate, and so on.
+
+## Patterns
+
+### Oscillators
+Oscillators are patterns that repeat themselves without moving after a given
+number of steps. The number of step need to return to the initial state is
+called the period.
+
+#### Blinker
+<HFlexContainer style={{
+    gap: "1rem",
+}}>
+    <GameOfLifeApp
+        src="data:text/life_rle;base64,eCA9IDE1LCB5ID0gMTUsIHJ1bGUgPSBCMy9TMjMKNyQ2YjNvNyQh"
+        controls
+    />
+    The blinker has a period of 2 and is the simplest oscillator.
+</HFlexContainer>
+
+#### Monogram
+<HFlexContainer style={{
+    gap: "1rem",
+}}>
+    <GameOfLifeApp
+        src="data:text/life_rle;base64,eCA9IDE1LCB5ID0gMTUsIHJ1bGUgPSBCMy9TMjMKNSQ0YjNvYjNvJDdibyQ0YjJvM2IybyQ3Ym8kNGIzb2IzbzUkIQ=="
+        controls
+    />
+    This oscillator has a period of 4.
+</HFlexContainer>
+
+#### Trans Queen Bee Shuttle
+The Queen Bee Shuttle is a period 30 oscillator.
+<GameOfLifeApp
+    src="data:text/life_rle;base64,eCA9IDI0LCB5ID0gOSwgcnVsZSA9IEIzL1MyMwokMTBibyQ4Ym9ibyQ3Ym9ibzExYjJvJGIybzNibzJibzExYjJvJGIybzRib2JvJDhib2JvJDEwYm8kIQ=="
+    controls
+/>
+
+### Spaceships
+Spaceships are like oscillators, however spaceships move.
+
+#### Glider
+<GameOfLifeApp
+    src="data:text/life_rle;base64,eCA9IDMyLCB5ID0gOSwgcnVsZSA9IEIzL1MyMwozJDNibzdibzdibzdibyQ0Ym83Ym83Ym83Ym8kMmIzbzViM281YjNvNWIzbzMkIQ=="
+    controls
+/>
+
+#### Lightweight spaceship
+<GameOfLifeApp
+    src="data:text/life_rle;base64,eCA9IDMyLCB5ID0gOCwgcnVsZSA9IEIzL1MyMwoyJDE0YjJvJDEzYjJvYjJvJDE0YjRvJDE1YjJvMiQh"
+    controls
+/>
+
+### Still lifes
+Still lifes are Oscillators with a period of 1, and, thus, they do not change
+from one generation to the next.
+
+#### Block
+<HFlexContainer style={{
+    gap: "1rem",
+}}>
+    <GameOfLifeApp
+        src="data:text/life_rle;base64,eCA9IDE0LCB5ID0gMTQsIHJ1bGUgPSBCMy9TMjMKNiQ2YjJvJDZiMm82JCE="
+        controls
+    />
+    The block is the simplest still life.
+</HFlexContainer>
+
+#### Beehive
+<HFlexContainer style={{
+    gap: "1rem",
+}}>
+    <GameOfLifeApp
+        src="data:text/life_rle;base64,eCA9IDE0LCB5ID0gMTQsIHJ1bGUgPSBCMy9TMjMKNiQ2YjJvJDVibzJibyQ2YjJvNSQh"
+        controls
+    />
+    The beehive is a still life with 6 cells.
+</HFlexContainer>
+
+#### Eaters
+<HFlexContainer style={{
+    gap: "1rem",
+    justifyContent: "space-between",
+}}>
+    <GameOfLifeApp
+        src="data:text/life_rle;base64,eCA9IDE0LCB5ID0gMTQsIHJ1bGUgPSBCMy9TMjMKNSQ1YjJvJDVib2JvJDdibyQ3YjJvNSQh"
+        controls
+    />
+    <GameOfLifeApp
+        src="data:text/life_rle;base64,eCA9IDE0LCB5ID0gMTQsIHJ1bGUgPSBCMy9TMjMKMyQ0YjJvJDRib2JvYjJvJDZib2IybyQ1Ym8kNWIyb2IybyQ2Ym9ibyQ2Ym9ibyQ3Ym8zJCE="
+        controls
+    />
+    <GameOfLifeApp
+        src="data:text/life_rle;base64,eCA9IDE0LCB5ID0gMTQsIHJ1bGUgPSBCMy9TMjMKNCQxMGIybyQxMGIybyQ2Ym8kNWJvYm8kNGJvYm8kNGJvJDNiMm8zJCE="
+        controls
+    />
+</HFlexContainer>
+Eaters are particularly useful to destroy spaceships, especially in toroidal
+grids where gliders can destroy other patterns.
+
+### Gun
+Guns are patterns that create spaceships.
+
+#### Gospel Glider Gun
+<GameOfLifeApp
+    src="data:text/life_rle;base64,eCA9IDQwLCB5ID0gMjcsIHJ1bGUgPSBCMy9TMjMKMiQyNWJvJDIzYm9ibyQxM2IybzZiMm8kMTJibzNibzRiMm8xMmIybyRiMm84Ym81Ym8zYjJvMTJiMm8kYjJvOGJvM2JvYgoybzRib2JvJDExYm81Ym83Ym8kMTJibzNibyQxM2IybzEzJDM2YjJvJDM2Ym9ibyQzOGJvJDM4YjJvIQ=="
+    controls
+/>
+
+Gospel Glider Gun is the first gun discovered. He emits a glider every 30
+generations. It was discovered by Bill Gosper in 1970.
+
+The eater in the bottom right corner is used to destroy the gliders that would
+otherwise destroy the gun.
+
+#### P24 gliderless LWSS gun
+<GameOfLifeApp
+    src="data:text/life_rle;base64,eCA9IDY0LCB5ID0gNDMsIHJ1bGUgPSBCMy9TMjMKMiQyNGIybzNiMm8kMmIyb2JvMmJvMTVib2JvYm8yYm8kbzJib2I0bzE3Ym9ibzJibyQybzJibzIxYm9ibzNiMm8kMmIzbwpiMm9ibzliMm8yYjJvYm8zYjJvMmJvJDJvYm8yYm9iMm85Ym8yYm8xMGIybyRvMTZib2JvJGI0bzExYm9ibzVibyQ2Ym8zCmIybzRib2JvYjRvNWJvMmJvJDNiMm8yYm8yYm9ib2Iyb2JvYjNvMTFibyQyYm8zYm81Ym9ibzJibzE2YjJvJGJvYjNvNGIKb2IybzJiMm8xMGJvYjJvNmJvJGJvM2JvM2JvMmJvMTVibzJibzNibyQyYjJvNWJvM2JvNWIybzZibzNib2IzbyQ0YjJvYgozbzJiNG8xMGJvMTFibyQ0Ym80YjNvMTdiM29ibzNibyRiMm9iMm9ib2IybzJibzJibzNiMm9iM28zYm8zYm8yYm8kb2JvCmJvOGJvNmIybzNiMm82YjJvYm8kYm8zYjZvM2IybzVibzdiMm8kN2JvM2JvOGJvMmIybzZibyQxMGIybzhibzJibzhibzIKYm8kMjBib2JvJDdibzViM28kNWJvYm84YjJvJDZib2JvM2JvM2IybzliMm8xMGIybzEwYjJvJDZibzZib2Iyb2JvNmIybwpiMm83YjJvYjJvN2Iyb2IybyQxM2IybzJiMm82YjRvOGI0bzhiNG8kMjZiMm8xMGIybzEwYjJvNWIybyQ3YjJvNDhib2JvCiQ2Ym9ibzdibzQyYm8kNmJvOWJvNDJiMm8kNWIybzIkOGIybzJiNG8yYjJvJDhibzJiNm8yYm8kOWIxMG8kNmIzbzEwYjMKbyQ2Ym8yYm84Ym8yYm8kN2IybzEwYjJvMiQh"
+    controls
+/>
+
+Again the eater in the bottom right corner is used to destroy the spaceships
+that would otherwise destroy the gun.
+
+### Complex patterns
+
+#### Queen Bee Turn
+<GameOfLifeApp
+    cellSize="1"
+    src="data:text/life_rle;base64,eCA9IDE1OSwgeSA9IDE1OSwgcnVsZSA9IEIzL1MyMwoyJDcxYjJvNmIybyQ3MWIybzZiMm8kNzFiMm82YjJvJDcxYjNvNGIzbyQ3MWJvMmJvMmJvMmJvJDcxYm9iMm8yYjJvYm8kCjcyYjJvYjJvYjJvJDc1YjJvJDU1YjJvMThiMm8xOGIybzIxYjJvNmIybyQ1NGJvYm8zOGJvYm8yMGIybzZiMm8kNTRib2IKb2IybzMyYjJvYm9ibyQ1NWJvYm9ibzMyYm9ib2JvJDE5YjJvNGIybzRiMm8yNGJvMzZibyQxOGJvMmJvYm80Ym9ibzJibwoyMmIybzhibzJiM284YjNvMmJvOGIybyQxOGIzbzEwYjNvMjFiM282YjJvM2IzbzhiM28zYjJvNmIzbyQyMWIybzZiMm8yCjRiM282YjNvNWJvNmJvNWIzbzZiM28kMjBibzJiNm8yYm8yM2IzbzZiMm8zYjNvOGIzbzNiMm82YjNvNWIybzM4YjJvJDIKMGIybzhiMm8yM2IzbzhibzJiM284YjNvMmJvOGIzbzRib2JvMzhib2JvJDU2YjJvMzZiMm81Ym9ib2IybzMyYjJvYm9ibwokNTdibzM2Ym83Ym9ib2JvMTJibzZibzEyYm9ib2JvJDU1Ym9ib2JvMzJib2JvYm83Ym8xM2IzbzRiM28xM2JvJDI0YjNvCjI3Ym9ib2IybzMyYjJvYm9ibzVibzJibzEwYjJvYjJvMmIyb2IybzEwYm8yYm8kMjRib2JvMjdib2JvMThiMm8xOGJvYm8KNWJvMTJiMm8xMGIybzEyYm8kMjRiM28yOGIybzE4YjJvMThiMm82Ym8zYm83YjNvMTBiM283Ym8zYm8kNzJiMm9iMm9ibwoyNGJvM2JvOGIybzEwYjJvOGJvM2JvJDM5YjJvMzBib2IybzI4Ym8xM2Iyb2IybzJiMm9iMm8xM2JvJDM5Ym8zMWJvMmJvCjI4Ym8yYm8xMWIzbzRiM28xMWJvMmJvJDM3Ym9ibzMxYjNvN2IybzIxYm8xNGJvNmJvMTRibyQzN2IybzQyYm8yMGJvYm8KYm8zMmJvYm9ibyQxMGIybzEzYm81NmIzbzE2Ym9ib2IybzMyYjJvYm9ibyQxMGIyb2Iyb2JvN2JvYm8xNGIybzdibzNiMgpvNmIybzIwYm8xNmJvYm8xNGJvMjNib2JvJDE0YjJvMjViMm81YjNvM2IybzVib2JvMTRiMm8yMmIybzExYm8yYm8yM2IyCm8kMjRiM28yMGJvMTNibzExYm80YjJvMzlibyQ0N2IybzExYjJvMTBib2JvMzliM28kNTRiM28xNWJvMmJvMzZibzJiMm8KJDI0YjNvMjhiMm8xNmJvMzliM28xMmIybyQxNGIybzE4YjJvMmIybzEyYjJvNzRibyQxMGIyb2Iyb2JvN2JvYm83YjJvMwpiMm8xMWIzbzIxYjJvMTRibzIzYm8xMmIzbyQxMGIybzEzYm83YjNvMmIybzEzYm9ibzEzYm9ibzRib2JvMzBiMm80YjNvCjEzYm8kMzRibzJibzEyYm8zYjJvMTNiMm83Ym8xMWJvYjNvMTNib2JvM2Iyb2IybzZiMm8kMzViM28xM2JvMThibzdiMm8KMTJiMm9ibzhibzNibzRiM29iM281YjJvJDM2Ym8xMmIzbzQwYm9iMm82YjNvMmIybzViMm9iMm8kOTNiM29ibzNibzEzYgozbyQ3MWI0bzI2YjJvMTNibyQyNGIzbzQzYm83YjJvMTVibyQyNGJvYm80M2JvM2IybzJiMm8xOWJvMjNiMm8kMjRiM28xCjNiMm8yOWJvMmIybzIyYm9ibzIyYm9ibyQ0MGJvNThiMm8yYjJvMjBibyQ0MWIzbzU5YjJvMjBiMm8kNDNibzE0Ym9ibyQKMjBiMm84YjJvMjZiMm80MWJvJDIwYm8yYjZvMmJvMjdibzQwYjJvMTliMm8kMjFiMm82YjJvMTFiMm81YjJvNDlib2JvNwpibzZiNG80YjJvN2IybzEwYjJvJDE4YjNvMTBiM285Ym81YjJvNThibzdiM29iMm8yYjJvNmJvMmJvOGJvMmJvJDE4Ym8yCmJvYm80Ym9ibzJibzlib2JvNjNiM28xMGJvMTBiM28xMGIzbyQxOWIybzRiMm80YjJvMTFiMm85MGIxMG8kNDhiMm84NWIKbzJiNm8yYm8kNDdib2JvODViMm8yYjRvMmIybyQ0OGJvNzRibyQxMWIybzEwYjJvOThiM28kMTBibzJibzhibzJibzE3YgozbzgwYm8kMTBiM28xMGIzbzE3YjNvMjZibzUyYjJvJDEzYjEwbzIwYjNvMjdibyQxMmJvMmI2bzJibzE2YjNvMjhiM281CjZib2JvJDEyYjJvMmI0bzJiMm8xNmIzbzg3Ym9ibyQ0MGIzbzg3Ym8kMTI0Ym82YjJvJDEyM2IzbzZibyQxMTFiMm8xMGIKbzJibzRiM283Ym8kMTExYjJvMTFiMm8xNGIzbzEyYjJvJDY3Ym83MWJvM2JvMTFiMm8kNjhibzlibzMzYm8yNmIyb2IybwokMzFiMm8zM2IzbzZiNG8zMmJvYm8kMzFibzQyYjRvMzJibzJibyQyOWJvYm80MmJvMmJvMTBibzIwYm8yYm81YjJvJDE3CmJvMTFiMm80M2I0bzlibzMxYm8kMmIybzEyYjNvNTZiNG84YjNvMTlibzJibzNiM282Ym8xM2Iyb2IybyQyYjJvMTFibzMKYm8xM2IybzdibzNiMm8zMGJvMzJiMm8zYm83YjJvMTNibzNibzExYjJvJDE1YjJvYjJvMTNibzZiM28zYjJvOTJiM28xMgpiMm8kMzlibzg4YjJvMTFibyQzOWIybzZibzI2YjNvNTBib2JvJDQ2Ym9ibzI1Ym81MmJvJDQ1Ym8yYm8yNmJvNTBiMm8kCjE1YjJvYjJvMjRibzJibyQyYjJvMTFibzNibyQyYjJvMTJiM28xNGIybzlibzJibyQxN2JvN2IzbzRibzJibzEwYjJvJDIKNmJvNmIzbzgxYm8kMjZiMm82Ym84MmIybyQyOGJvMjliM281NWIyb2JvJDI2Ym9ibzMxYm81NGJvMmIzbzE0YjJvMmI0bwoyYjJvJDI2Ym9ibzE2Ym9ibzExYm81NGJvYm9ibzE2Ym8yYjZvMmJvJDQ2YjJvNjVib2JvYm8xOGIxMG8kMzJiMm8xMmJvCjU0YjNvN2IzbzJibzE2YjNvMTBiM28kMzJibzM0YjNvMzFibzEwYm9iMm8xN2JvMmJvOGJvMmJvJDMzYjNvMzNibzMyYm8KMTBiMm8xOWIybzEwYjJvJDM1Ym8zMmJvNDFibzNibyQxMmIybzJiNG8yYjJvODVib2JvJDEyYm8yYjZvMmJvODViMm8kMQozYjEwbzkwYjJvMTFiMm80YjJvNGIybyQxMGIzbzEwYjNvMTBiMm83NWJvYm85Ym8yYm9ibzRib2JvMmJvJDEwYm8yYm84CmJvMmJvNmI0bzRiMm82NmIybzVibzliM28xMGIzbyQxMWIybzEwYjJvN2Izb2IybzJiMm81NGIzbzliMm81YjJvMTFiMm8KNmIybyQzN2JvNThibzMwYm8yYjZvMmJvJDk3Ym8yOWIybzhiMm8kMTE1Ym8kMzJiMm8yMGIybzU5YjNvJDMzYm8yMGIybwoyYjJvNThibyQzM2JvYm8yMmJvYm8xOWI0bzMzYjJvMTNiM28kMzRiMm8yM2JvMTlibzdiMm80M2JvYm8kNjNibzE1Ym8zCmIybzJiMm80M2IzbyQ0MmJvMTNiMm80YjNvMTVibzJiMm8kNDFiM28xM2JvM2Izb2JvJDQwYjJvYjJvNWIybzJiM281Ym8KM2JvNTVibyQzMmIybzViM29iM280Ym8zYm84Ym8zYm8xMWIybzdibzE4Ym8xM2IzbyQzMmIybzZiMm9iMm8zYm9ibzEzYgpvYjNvMTFibzdiMm8xM2IybzNibzEyYm8yYm8kMjdibzEzYjNvNGIybzE1YjNvMTJib2JvNGJvYm8xM2IybzNibzEwYjJvCjJiM283Ym8xM2IybyQyN2IzbzEyYm8yM2JvMTRiMm8zNWIybzNiMm83Ym9ibzdib2Iyb2IybyQzMGJvODhiMm8yYjJvMTgKYjJvJDI5YjJvMTJiM28zOWJvMTdiM28yNmIzbyQ0MmIybzJibzM2Ym8yYm8xN2IybyQ0MmIzbzM5Ym9ibzEwYjJvMmIybwo3YjJvJDM5Ym8zOWIybzRibzExYm8zYjNvN2JvMjBiM28kMTViMm8yM2JvMmJvMTFiMm8yMmIybzE0Ym9ibzRib2JvM2IzCm81YjJvMjViMm8kMTRib2JvMjNibzE0Ym9ibzE2Ym8yMGIybzZiMm8zYm83YjJvMTRib2JvN2JvYjJvYjJvJDE0Ym9ib2IKMm8zMmIyb2JvYm8xNmIzbzU2Ym8xM2IybyQxNWJvYm9ibzMyYm9ib2JvMjBibzQyYjJvJDE3Ym8xNGJvNmJvMTRibzIxYgoybzdiM28zMWJvYm8kMTZibzJibzExYjNvNGIzbzExYm8yYm8yOGJvMmJvMzFibyQxNmJvMTNiMm9iMm8yYjJvYjJvMTNiCm8yOGIyb2JvMzBiMm8kMTZibzNibzhiMm8xMGIybzhibzNibzI0Ym9iMm9iMm8kMTZibzNibzdiM28xMGIzbzdibzNibzYKYjJvMThiMm8xOGIybzI4YjNvJDE2Ym8xMmIybzEwYjJvMTJibzVib2JvMThiMm8xOGJvYm8yN2JvYm8kMTZibzJibzEwYgoyb2IybzJiMm9iMm8xMGJvMmJvNWJvYm9iMm8zMmIyb2JvYm8yN2IzbyQxN2JvMTNiM280YjNvMTNibzdib2JvYm8zMmJvCmJvYm8kMTVib2JvYm8xMmJvNmJvMTJib2JvYm83Ym8zNmJvJDE0Ym9ib2IybzMyYjJvYm9ibzViMm8zNmIybyQxNGJvYm8KMzhib2JvNGIzbzhibzJiM284YjNvMmJvOGIzbzIzYjJvOGIybyQxNWIybzM4YjJvNWIzbzZiMm8zYjNvOGIzbzNiMm82YgozbzIzYm8yYjZvMmJvJDYyYjNvNmIzbzVibzZibzViM282YjNvMjRiMm82YjJvJDYyYjNvNmIybzNiM284YjNvM2IybzZiCjNvMjFiM28xMGIzbyQ2M2IybzhibzJiM284YjNvMmJvOGIybzIyYm8yYm9ibzRib2JvMmJvJDY0Ym8zNmJvMjRiMm80YjIKbzRiMm8kNjJib2JvYm8zMmJvYm9ibyQ2MWJvYm9iMm8zMmIyb2JvYm8kMzFiMm82YjJvMjBib2JvMzhib2JvJDMxYjJvNgpiMm8yMWIybzE4YjJvMThiMm8kODJiMm8kNzliMm9iMm9iMm8kNzhib2IybzJiMm9ibyQ3OGJvMmJvMmJvMmJvJDc4YjNvCjRiM28kNzhiMm82YjJvJDc4YjJvNmIybyQ3OGIybzZiMm8yJCE="
+    controls
+/>
+
+#### Gunstar
+<GameOfLifeApp
+    cellSize="1"
+    src="data:text/life_rle;base64,eCA9IDE3NSwgeSA9IDE3NSwgcnVsZSA9IEIzL1MyMwokNjRiMm8kNjVibyQ2NWJvYm8kNjZiMm85JDUzYjJvJDUzYjJvJDUzYjJvJDUzYm8kNTJib2JvJDUyYm9iMm8yJDU5YjJvCiQ1M2IybzRiMm8kNTNiMm8yJDczYm8yNmIybyQ2M2IybzhiM28yNGJvJDYzYm9ibzEwYm8yMWJvYm8kNjNibzExYjJvMTUKYm81YjJvNGIybyQ5MWIybzExYjJvJDY0YjJvMjVib2JvJDYwYm8zYm8yYm8zN2JvJDU5Ym8yYm9iM28zN2JvYm8kNTliMwpvYm8zOWJvMmJvJDUzYjJvNWJvYjNvMzdibzJibyQ1M2IybzExYm8kNTNiMm8yMmIybzIzYm8yYm8kNTRibzIyYjJvMjViCjJvJDUzYm9ibyQ1MmIyb2JvMTJiM28kNjhibyQ2OWJvJDUzYjJvJDUzYjJvNTdiM28yJDg2YjJvMjBiM29ibzJibyQ4N2IKbzdiMm85Ym9iM28kODRiM284YjJvOGJvNmIzbyQ4NGJvMjBiMm8yJDEwOGIybyQxMDBiMm85YjJvJDEwMGIybzdib2JvJAo1NmIybzUyYm8yNWJvMTliMm8kNTZiMm83NGIybzJiMm9iM28xMGIybzRiNG8kMTE1YjJvMTViMm80YjRvMTBiMm8yYjJvCmIzbyQ5N2IybzE1YjNvMTliMm8xOGJvJDU2YjNvMzRiMm8yYjJvMmIybzEwYm9ibzJibzJiMm8kNTdiMm8zNGJvYm8yYm8KMmIybzEwYjJvMmIybzJiMm8kNTRiMm8zOGIzbzIwYjJvJDQ0Ym85YjNvMzhiMm80NWIybzliMm8kNDJibzNibzhib2JvOAozYjJvYm84YjJvJDQyYm8zYm85YjJvODRibyQ0MmJvYm9ibzNibzkwYm9ibyQ1MGIybzg5YjJvNGIzbyQ0NGIybzZibzg4CmJvYjNvM2JvMjNibyQ0NGIybzNib2JvOTFib2JvMmJvMjJiM28kNDRiMm8zYm85MGJvMmJvMjZibyQxNDRibzI1YjJvJDMKMWIybzEyYm9ibzI2Ym82MGIybyQyN2Iyb2JvMmJvYjJvOWIybzI2Ym9ibzU3Ym9ibyQyN2IybzJibzRibzM3YjJvNjBibwokMzJibyQzM2JvYm8yMGIybyQyNGJvMjViMm80YjJvOTFiMm8kMjRiM28yM2IybzUyYjNvNDJibyQyN2JvNzZibzQyYm9iCm8kMjZiMm8yN2IzbzQ3Ym80MWIybyQ1NWIybzgxYjJvJDQ1YjJvMTFiMm83OGIybyQ0NWIybzEwYjNvJDU2Ym9ibyQyOWIKbzI2YjJvJDI3YjJvJDI4YjJvJDEyN2IybyQxMjhibyQxMjhib2JvJDQ0YjJvODNiMm8kNDRib2JvJDQ2Ym8kNDZiMm8kMQo0NWIybyQxNDZiMm8kMTE3YjJvMjZibyQxMTZib2JvJDExNWIzbzEwYjJvJDM1YjJvNzhiMm8xMWIybyQzNWIybzgxYjJvCiQyNmIybzQxYm80N2IzbzI3YjJvJDI1Ym9ibzQyYm83NmJvJDI1Ym80MmIzbzUyYjJvMjNiM28kMjRiMm85MWIybzRiMm8KMjVibyQxMTdiMm8yMGJvYm8kMTQyYm8kMzhibzYwYjJvMzdibzRibzJiMm8kMzhib2JvNTdib2JvMjZiMm85YjJvYm8yYgpvYjJvJDM4YjJvNjBibzI2Ym9ibzEyYjJvJDNiMm8yNWJvJDRibzI2Ym8yYm85MGJvM2IybyRiM28yMmJvMmJvYm85MWJvCmJvM2IybyRibzIzYm8zYjNvYm84OGJvNmIybyQyNWIzbzRiMm84OWIybyQzMWJvYm85MGJvM2JvYm9ibyQzMmJvODRiMm8KOWJvM2JvJDIwYjJvOGJvYjJvODNib2JvOGJvM2JvJDIwYjJvOWIybzQ1YjJvMzhiM285Ym8kNTZiMm8yMGIzbzM4YjJvJAo1MmIybzJiMm8yYjJvMTBiMm8yYm8yYm9ibzM0YjJvJDUyYjJvMmJvMmJvYm8xMGIybzJiMm8yYjJvMzRiM28kMThibzE4CmIybzE5YjNvMTViMm8kMTNiM29iMm8yYjJvMTBiNG80YjJvMTViMm8kMTNiNG80YjJvMTBiM29iMm8yYjJvNzRiMm8kMTcKYjJvMTlibzI1Ym81MmIybyQ2M2JvYm83YjJvJDYyYjJvOWIybyQ2NWIybzIkNjhiMm8yMGJvJDYwYjNvNmJvOGIybzhiMwpvJDY0YjNvYm85YjJvN2JvJDU5Ym8yYm9iM28yMGIybzIkNjBiM281N2IybyQxMjBiMm8kMTA1Ym8kMTA2Ym8kMTA0YjNvCjEyYm9iMm8kMTE5Ym9ibyQ2OWIybzI1YjJvMjJibyQ2OWJvMmJvMjNiMm8yMmIybyQxMDhibzExYjJvJDY5Ym8yYm8zN2IKM29ibzViMm8kNjhibzJibzM5Ym9iM28kNjhib2JvMzdiM29ibzJibyQ2OWJvMzdibzJibzNibyQ4MWJvYm8yNWIybyQ2OQpiMm8xMWIybyQ2OWIybzRiMm81Ym8xNWIybzExYm8kNzRib2JvMjFibzEwYm9ibyQ3NGJvMjRiM284YjJvJDczYjJvMjZiCm8yJDEyMGIybyQxMTRiMm80YjJvJDExNGIybzIkMTE5YjJvYm8kMTIwYm9ibyQxMjFibyQxMjBiMm8kMTIwYjJvJDEyMGIKMm85JDEwN2IybyQxMDdib2JvJDEwOWJvJDEwOWIybyQh"
+    controls
+/>
+
+### Make your own
+<GameOfLifeApp width="32" height="32" editable controls/>
+
+### Controls
+<FontAwesomeIcon icon={ faPlayCircle } fixedWidth/>  launch the simulation<br/>
+<FontAwesomeIcon icon={ faPauseCircle } fixedWidth/> pause the simulation<br/>
+<FontAwesomeIcon icon={ faStepForward } fixedWidth/> step forward the simulation<br/>
+<FontAwesomeIcon icon={ faBorderNone } fixedWidth/>  toggle the grid on/off<br/>
+<FontAwesomeIcon icon={ faRotateLeft } fixedWidth/>  reset the simulation<br/>
+<FontAwesomeIcon icon={ faSkull } fixedWidth/>       clear the simulation<br/>
+<FontAwesomeIcon icon={ faDice } fixedWidth/>        randomize the simulation<br/>
+
+## About the Game of Life
+More details on the Game of Life is available by following the links
+following:
+- [LifeWiki](https://conwaylife.com/wiki/Main_Page)
+- [Wikipedia](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
