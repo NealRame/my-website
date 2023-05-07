@@ -71,19 +71,19 @@ export const About = () => {
                 <li>JavaScript</li>
                 <li>TypeScript</li>
                 <li>React</li>
-                <li>Vue.js</li>
-                <li>Node.js</li>
+                <li>Lit</li>
             </StyledList><StyledList>
-                <li>C++</li>
+                <li>Rust</li>
+                <li>C/C++</li>
                 <li>CMake</li>
                 <li>Conan</li>
             </StyledList><StyledList>
-                <li>Docker</li>
-                <li>Jenkins</li>
-                <li>Travis</li>
-            </StyledList><StyledList>
                 <li>Python</li>
                 <li>Django</li>
+            </StyledList><StyledList>
+                <li>Docker</li>
+                <li>GitHub Actions</li>
+                <li>Jenkins</li>
             </StyledList>
         </div>
     </Section>
